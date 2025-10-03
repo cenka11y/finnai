@@ -1,7 +1,7 @@
 {
-  "name": "souai-frontend",
+  "name": "suoai-frontend",
   "version": "1.0.0",
-  "description": "SOUAI - Online Eğitim ve Kariyer Platformu Frontend",
+  "description": "SUOAI - Online Eğitim ve Kariyer Platformu Frontend",
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --mode development",
