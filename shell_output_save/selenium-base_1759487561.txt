@@ -1,0 +1,870 @@
+Using Python 3.12.5 environment at: /tmp/.venv
+⠋ Resolving dependencies...                                                     ⠙ Resolving dependencies...                                                     ⠋ Resolving dependencies...                                                     ⠙ Resolving dependencies...                                                     ⠙ playwright==1.52.0                                                            ⠹ playwright==1.52.0                                                            ⠸ playwright==1.52.0                                                            ⠼ playwright==1.52.0                                                            ⠴ playwright==1.52.0                                                            ⠦ playwright==1.52.0                                                            ⠧ playwright==1.52.0                                                            ⠧ selenium-base==4.41.12                                                        ⠇ selenium-base==4.41.12                                                        ⠋ selenium-base==4.41.12                                                        ⠙ selenium-base==4.41.12                                                        ⠹ selenium-base==4.41.12                                                        ⠸ selenium-base==4.41.12                                                        ⠼ selenium-base==4.41.12                                                        ⠴ selenium-base==4.41.12                                                        ⠴ pyee==13.0.0                                                                  ⠴ greenlet==3.2.3                                                               ⠦ greenlet==3.2.3                                                               ⠧ greenlet==3.2.3                                                               ⠇ greenlet==3.2.3                                                               ⠋ greenlet==3.2.3                                                               ⠙ greenlet==3.2.3                                                               ⠹ greenlet==3.2.3                                                               ⠸ greenlet==3.2.3                                                               ⠼ greenlet==3.2.3                                                               ⠴ greenlet==3.2.3                                                               ⠦ greenlet==3.2.3                                                               ⠧ greenlet==3.2.3                                                               ⠇ greenlet==3.2.3                                                               ⠋ greenlet==3.2.3                                                               ⠙ greenlet==3.2.3                                                               ⠹ greenlet==3.2.3                                                               ⠹ seleniumbase==4.41.12                                                         ⠸ seleniumbase==4.41.12                                                         ⠼ seleniumbase==4.41.12                                                         ⠴ seleniumbase==4.41.12                                                         ⠦ seleniumbase==4.41.12                                                         ⠧ seleniumbase==4.41.12                                                         ⠇ seleniumbase==4.41.12                                                         ⠋ seleniumbase==4.41.12                                                         ⠙ seleniumbase==4.41.12                                                         ⠹ seleniumbase==4.41.12                                                         ⠸ seleniumbase==4.41.12                                                         ⠼ seleniumbase==4.41.12                                                         ⠴ seleniumbase==4.41.12                                                         ⠦ seleniumbase==4.41.12                                                         ⠧ seleniumbase==4.41.12                                                         ⠇ seleniumbase==4.41.12                                                         ⠋ seleniumbase==4.41.12                                                         ⠋ idna==3.10                                                                    ⠋ chardet==5.2.0                                                                ⠋ sniffio==1.3.1                                                                ⠋ h11==0.16.0                                                                   ⠋ outcome==1.3.0.post0                                                          ⠋ wsproto==1.2.0                                                                ⠋ selenium==4.35.0                                                              ⠙ selenium==4.35.0                                                              ⠹ selenium==4.35.0                                                              ⠸ selenium==4.35.0                                                              ⠼ selenium==4.35.0                                                              ⠴ selenium==4.35.0                                                              ⠦ selenium==4.35.0                                                              ⠧ selenium==4.35.0                                                              ⠧ selenium==4.35.0                                                              ⠧ cssselect==1.3.0                                                              ⠇ cssselect==1.3.0                                                              ⠋ cssselect==1.3.0                                                              ⠙ cssselect==1.3.0                                                              ⠹ cssselect==1.3.0                                                              ⠸ cssselect==1.3.0                                                              ⠸ cssselect==1.3.0                                                              ⠸ sortedcontainers==2.4.0                                                       ⠸ execnet==2.1.1                                                                ⠸ iniconfig==2.1.0                                                              ⠸ pluggy==1.6.0                                                                 ⠸ pluggy==1.6.0                                                                 ⠸ pytest==8.4.2                                                                 ⠼ pytest==8.4.2                                                                 ⠴ pytest==8.4.2                                                                 ⠦ pytest==8.4.2                                                                 ⠧ pytest==8.4.2                                                                 ⠇ pytest==8.4.2                                                                 ⠇ pytest==8.4.2                                                                 ⠇ pytest-html==4.0.2                                                            ⠇ pytest-metadata==3.1.1                                                        ⠇ pytest-ordering==0.6                                                          ⠇ pytest-rerunfailures==16.0.1                                                  ⠋ pytest-rerunfailures==16.0.1                                                  ⠙ pytest-rerunfailures==16.0.1                                                  ⠹ pytest-rerunfailures==16.0.1                                                  ⠸ pytest-rerunfailures==16.0.1                                                  ⠼ pytest-rerunfailures==16.0.1                                                  ⠼ pytest-rerunfailures==16.0.1                                                  ⠼ pytest-xdist==3.8.0                                                           ⠴ pytest-xdist==3.8.0                                                           ⠦ pytest-xdist==3.8.0                                                           ⠧ pytest-xdist==3.8.0                                                           ⠇ pytest-xdist==3.8.0                                                           ⠋ pytest-xdist==3.8.0                                                           ⠙ pytest-xdist==3.8.0                                                           ⠙ pytest-xdist==3.8.0                                                           ⠙ parameterized==0.9.0                                                          ⠙ behave==1.2.6                                                                 ⠙ pyotp==2.9.0                                                                  ⠙ python-xlib==0.33                                                             ⠹ python-xlib==0.33                                                             ⠸ python-xlib==0.33                                                             ⠼ python-xlib==0.33                                                             ⠴ python-xlib==0.33                                                             ⠦ python-xlib==0.33                                                             ⠦ python-xlib==0.33                                                             ⠦ markdown-it-py==4.0.0                                                         ⠧ markdown-it-py==4.0.0                                                         ⠇ markdown-it-py==4.0.0                                                         ⠋ markdown-it-py==4.0.0                                                         ⠙ markdown-it-py==4.0.0                                                         ⠙ markdown-it-py==4.0.0                                                         ⠙ mdurl==0.1.2                                                                  ⠙ typing-extensions==4.14.0                                                     ⠙ pip==25.2                                                                     ⠙ pip==25.2                                                                     ⠙ packaging==25.0                                                               ⠙ setuptools==80.9.0                                                            ⠙ setuptools==80.9.0                                                            ⠙ wheel==0.45.1                                                                 ⠙ attrs==25.3.0                                                                 ⠙ certifi==2025.8.3                                                             ⠙ exceptiongroup==1.3.0                                                         ⠙ typing-extensions==4.14.0                                                     ⠙ websockets==15.0.1                                                            ⠙ websockets==15.0.1                                                            ⠙ filelock==3.19.1                                                              ⠹ filelock==3.19.1                                                              ⠹ filelock==3.19.1                                                              ⠹ fasteners==0.20                                                               ⠹ mycdp==1.2.0                                                                  ⠹ pynose==1.5.5                                                                 ⠹ platformdirs==4.4.0                                                           ⠸ pysocks==1.7.1                                                                ⠼ pysocks==1.7.1                                                                ⠼                                                                               Resolved 64 packages in 16.88s
+⠋ Preparing packages... (0/0)                                                   ⠋ Preparing packages... (0/45)                                                  ⠙ Preparing packages... (0/45)                                                  ⠙ Preparing packages... (0/45)
+markupsafe ------------------------------     0 B/22.41 KiB                     ⠙ Preparing packages... (0/45)
+markupsafe ------------------------------ 8.00 KiB/22.41 KiB                    ⠙ Preparing packages... (0/45)
+cssselect  ------------------------------     0 B/18.35 KiB
+markupsafe ------------------------------ 8.00 KiB/22.41 KiB                    ⠙ Preparing packages... (0/45)
+cssselect  ------------------------------ 8.00 KiB/18.35 KiB
+markupsafe ------------------------------ 8.00 KiB/22.41 KiB                    ⠙ Preparing packages... (0/45)
+cssselect  ------------------------------ 8.00 KiB/18.35 KiB
+markupsafe ------------------------------ 16.00 KiB/22.41 KiB                   ⠙ Preparing packages... (0/45)
+cssselect  ------------------------------ 8.00 KiB/18.35 KiB
+markupsafe ------------------------------ 22.41 KiB/22.41 KiB                   ⠙ Preparing packages... (0/45)
+mdurl      ------------------------------     0 B/9.75 KiB
+cssselect  ------------------------------ 8.00 KiB/18.35 KiB
+markupsafe ------------------------------ 22.41 KiB/22.41 KiB                   ⠙ Preparing packages... (0/45)
+mdurl      ------------------------------ 8.00 KiB/9.75 KiB
+cssselect  ------------------------------ 8.00 KiB/18.35 KiB
+markupsafe ------------------------------ 22.41 KiB/22.41 KiB                   ⠙ Preparing packages... (0/45)
+mdurl      ------------------------------ 8.00 KiB/9.75 KiB
+cssselect  ------------------------------ 16.00 KiB/18.35 KiB
+markupsafe ------------------------------ 22.41 KiB/22.41 KiB                   ⠙ Preparing packages... (0/45)
+mdurl      ------------------------------ 8.00 KiB/9.75 KiB
+cssselect  ------------------------------ 18.35 KiB/18.35 KiB
+markupsafe ------------------------------ 22.41 KiB/22.41 KiB                   ⠙ Preparing packages... (0/45)
+mdurl      ------------------------------ 8.00 KiB/9.75 KiB
+cssselect  ------------------------------ 18.35 KiB/18.35 KiB
+markupsafe ------------------------------ 22.41 KiB/22.41 KiB
+markdown-it-py ------------------------------     0 B/85.27 KiB                 ⠙ Preparing packages... (0/45)
+mdurl      ------------------------------ 8.00 KiB/9.75 KiB
+cssselect  ------------------------------ 18.35 KiB/18.35 KiB
+markupsafe ------------------------------ 22.41 KiB/22.41 KiB
+markdown-it-py ------------------------------ 8.00 KiB/85.27 KiB                ⠙ Preparing packages... (0/45)
+mdurl      ------------------------------ 8.00 KiB/9.75 KiB
+cssselect  ------------------------------ 18.35 KiB/18.35 KiB
+markupsafe ------------------------------ 22.41 KiB/22.41 KiB
+markdown-it-py ------------------------------ 8.00 KiB/85.27 KiB
+websockets ------------------------------     0 B/178.25 KiB                    ⠙ Preparing packages... (0/45)
+mdurl      ------------------------------ 8.00 KiB/9.75 KiB
+cssselect  ------------------------------ 18.35 KiB/18.35 KiB
+markupsafe ------------------------------ 22.41 KiB/22.41 KiB
+markdown-it-py ------------------------------ 8.00 KiB/85.27 KiB
+websockets ------------------------------ 8.00 KiB/178.25 KiB                   ⠙ Preparing packages... (0/45)
+mdurl      ------------------------------ 8.00 KiB/9.75 KiB
+markupsafe ------------------------------ 22.41 KiB/22.41 KiB
+markdown-it-py ------------------------------ 8.00 KiB/85.27 KiB
+websockets ------------------------------ 8.00 KiB/178.25 KiB                   ⠙ Preparing packages... (0/45)
+mdurl      ------------------------------ 8.00 KiB/9.75 KiB
+markdown-it-py ------------------------------ 8.00 KiB/85.27 KiB
+websockets ------------------------------ 8.00 KiB/178.25 KiB                   ⠙ Preparing packages... (0/45)
+mdurl      ------------------------------ 9.75 KiB/9.75 KiB
+markdown-it-py ------------------------------ 8.00 KiB/85.27 KiB
+websockets ------------------------------ 8.00 KiB/178.25 KiB                   ⠙ Preparing packages... (0/45)
+markdown-it-py ------------------------------ 8.00 KiB/85.27 KiB
+websockets ------------------------------ 8.00 KiB/178.25 KiB                   ⠙ Preparing packages... (0/45)
+markdown-it-py ------------------------------ 16.00 KiB/85.27 KiB
+websockets ------------------------------ 8.00 KiB/178.25 KiB                   ⠙ Preparing packages... (0/45)
+pytest-rerunfailures ------------------------------     0 B/13.29 KiB
+markdown-it-py ------------------------------ 16.00 KiB/85.27 KiB
+websockets ------------------------------ 8.00 KiB/178.25 KiB                   ⠙ Preparing packages... (0/45)
+pytest-rerunfailures ------------------------------ 8.00 KiB/13.29 KiB
+markdown-it-py ------------------------------ 16.00 KiB/85.27 KiB
+websockets ------------------------------ 8.00 KiB/178.25 KiB                   ⠙ Preparing packages... (0/45)
+pyotp      ------------------------------ 8.00 KiB/13.06 KiB
+pytest-html ------------------------------ 8.00 KiB/22.57 KiB
+parse-type ------------------------------ 8.00 KiB/26.45 KiB
+markdown-it-py ------------------------------ 24.00 KiB/85.27 KiB
+websockets ------------------------------ 24.00 KiB/178.25 KiB
+mycdp      ------------------------------ 8.00 KiB/243.25 KiB
+pip        ------------------------------ 16.00 KiB/1.67 MiB                    ⠙ Preparing packages... (0/45)
+pyotp      ------------------------------ 8.00 KiB/13.06 KiB
+exceptiongroup ------------------------------ 16.00 KiB/16.28 KiB
+pysocks    ------------------------------ 16.00 KiB/16.33 KiB
+fasteners  ------------------------------ 16.00 KiB/18.26 KiB
+pytest-html ------------------------------ 16.00 KiB/22.57 KiB
+wsproto    ------------------------------ 8.00 KiB/23.66 KiB
+parse-type ------------------------------ 26.45 KiB/26.45 KiB
+markdown-it-py ------------------------------ 31.26 KiB/85.27 KiB
+jinja2     ------------------------------ 8.00 KiB/131.74 KiB
+python-xlib ------------------------------ 8.00 KiB/177.92 KiB
+websockets ------------------------------ 47.18 KiB/178.25 KiB
+chardet    ------------------------------ 8.00 KiB/194.71 KiB
+rich       ------------------------------ 39.27 KiB/237.66 KiB
+mycdp      ------------------------------ 39.26 KiB/243.25 KiB
+pytest     ------------------------------ 8.00 KiB/357.18 KiB
+seleniumbase ------------------------------ 8.00 KiB/621.59 KiB
+pip        ------------------------------ 47.26 KiB/1.67 MiB                    ⠙ Preparing packages... (0/45)
+iniconfig  ------------------------------ 5.91 KiB/5.91 KiB
+outcome    ------------------------------ 8.00 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+pyotp      ------------------------------ 13.06 KiB/13.06 KiB
+filelock   ------------------------------ 8.00 KiB/15.61 KiB
+exceptiongroup ------------------------------ 16.00 KiB/16.28 KiB
+pysocks    ------------------------------ 16.00 KiB/16.33 KiB
+fasteners  ------------------------------ 16.00 KiB/18.26 KiB
+parse      ------------------------------ 8.00 KiB/19.65 KiB
+trio-websocket ------------------------------ 8.00 KiB/20.72 KiB
+pdbp       ------------------------------ 16.00 KiB/21.14 KiB
+pytest-html ------------------------------ 22.57 KiB/22.57 KiB
+wsproto    ------------------------------ 16.00 KiB/23.66 KiB
+colorama   ------------------------------ 8.00 KiB/24.74 KiB
+sortedcontainers ------------------------------ 24.00 KiB/28.88 KiB
+execnet    ------------------------------ 8.00 KiB/39.66 KiB
+websocket-client ------------------------------ 8.00 KiB/57.45 KiB
+wheel      ------------------------------ 8.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 39.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 16.00 KiB/103.90 KiB
+jinja2     ------------------------------ 24.00 KiB/131.74 KiB
+behave     ------------------------------ 8.00 KiB/133.57 KiB
+python-xlib ------------------------------ 16.00 KiB/177.92 KiB⠙ Preparing packages... (0/45)
+iniconfig  ------------------------------ 5.91 KiB/5.91 KiB
+outcome    ------------------------------ 8.00 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+filelock   ------------------------------ 8.00 KiB/15.61 KiB
+exceptiongroup ------------------------------ 16.00 KiB/16.28 KiB
+pysocks    ------------------------------ 16.00 KiB/16.33 KiB
+fasteners  ------------------------------ 16.00 KiB/18.26 KiB
+parse      ------------------------------ 8.00 KiB/19.65 KiB
+trio-websocket ------------------------------ 8.00 KiB/20.72 KiB
+pdbp       ------------------------------ 16.00 KiB/21.14 KiB
+pytest-html ------------------------------ 22.57 KiB/22.57 KiB
+wsproto    ------------------------------ 16.00 KiB/23.66 KiB
+colorama   ------------------------------ 8.00 KiB/24.74 KiB
+sortedcontainers ------------------------------ 24.00 KiB/28.88 KiB
+execnet    ------------------------------ 8.00 KiB/39.66 KiB
+websocket-client ------------------------------ 8.00 KiB/57.45 KiB
+wheel      ------------------------------ 8.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 39.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 16.00 KiB/103.90 KiB
+jinja2     ------------------------------ 31.25 KiB/131.74 KiB
+behave     ------------------------------ 8.00 KiB/133.57 KiB
+python-xlib ------------------------------ 16.00 KiB/177.92 KiB
+websockets ------------------------------ 63.18 KiB/178.25 KiB⠙ Preparing packages... (0/45)
+iniconfig  ------------------------------ 5.91 KiB/5.91 KiB
+tabcompleter ------------------------------ 6.57 KiB/6.57 KiB
+outcome    ------------------------------ 8.00 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+filelock   ------------------------------ 8.00 KiB/15.61 KiB
+exceptiongroup ------------------------------ 16.00 KiB/16.28 KiB
+fasteners  ------------------------------ 16.00 KiB/18.26 KiB
+parse      ------------------------------ 16.00 KiB/19.65 KiB
+parameterized ------------------------------ 8.00 KiB/20.00 KiB
+trio-websocket ------------------------------ 20.72 KiB/20.72 KiB
+pdbp       ------------------------------ 21.14 KiB/21.14 KiB
+pytest-html ------------------------------ 22.57 KiB/22.57 KiB
+wsproto    ------------------------------ 23.66 KiB/23.66 KiB
+colorama   ------------------------------ 8.00 KiB/24.74 KiB
+sortedcontainers ------------------------------ 24.00 KiB/28.88 KiB
+execnet    ------------------------------ 24.00 KiB/39.66 KiB
+pytest-xdist ------------------------------ 8.00 KiB/45.31 KiB
+websocket-client ------------------------------ 8.00 KiB/57.45 KiB
+wheel      ------------------------------ 16.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 39.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 24.00 KiB/103.90 KiB
+jinja2     ------------------------------ 31.25 KiB/131.74 KiB
+behave     ------------------------------ 8.00 KiB/133.57 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+iniconfig  ------------------------------ 5.91 KiB/5.91 KiB
+tabcompleter ------------------------------ 6.57 KiB/6.57 KiB
+outcome    ------------------------------ 8.00 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 8.00 KiB/15.61 KiB
+fasteners  ------------------------------ 16.00 KiB/18.26 KiB
+parse      ------------------------------ 19.65 KiB/19.65 KiB
+parameterized ------------------------------ 8.00 KiB/20.00 KiB
+trio-websocket ------------------------------ 20.72 KiB/20.72 KiB
+pdbp       ------------------------------ 21.14 KiB/21.14 KiB
+pytest-html ------------------------------ 22.57 KiB/22.57 KiB
+wsproto    ------------------------------ 23.66 KiB/23.66 KiB
+colorama   ------------------------------ 8.00 KiB/24.74 KiB
+sortedcontainers ------------------------------ 28.88 KiB/28.88 KiB
+execnet    ------------------------------ 24.00 KiB/39.66 KiB
+pytest-xdist ------------------------------ 8.00 KiB/45.31 KiB
+websocket-client ------------------------------ 16.00 KiB/57.45 KiB
+wheel      ------------------------------ 16.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 39.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 24.00 KiB/103.90 KiB
+jinja2     ------------------------------ 47.25 KiB/131.74 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+iniconfig  ------------------------------ 5.91 KiB/5.91 KiB
+tabcompleter ------------------------------ 6.57 KiB/6.57 KiB
+outcome    ------------------------------ 10.44 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 8.00 KiB/15.61 KiB
+fasteners  ------------------------------ 18.26 KiB/18.26 KiB
+parse      ------------------------------ 19.65 KiB/19.65 KiB
+parameterized ------------------------------ 16.00 KiB/20.00 KiB
+trio-websocket ------------------------------ 20.72 KiB/20.72 KiB
+pytest-html ------------------------------ 22.57 KiB/22.57 KiB
+wsproto    ------------------------------ 23.66 KiB/23.66 KiB
+colorama   ------------------------------ 16.00 KiB/24.74 KiB
+sortedcontainers ------------------------------ 28.88 KiB/28.88 KiB
+execnet    ------------------------------ 31.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 8.00 KiB/45.31 KiB
+websocket-client ------------------------------ 24.00 KiB/57.45 KiB
+wheel      ------------------------------ 24.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 39.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 39.26 KiB/103.90 KiB
+pynose     ------------------------------ 8.00 KiB/127.64 KiB
+jinja2     ------------------------------ 73.16 KiB/131.74 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+iniconfig  ------------------------------ 5.91 KiB/5.91 KiB
+tabcompleter ------------------------------ 6.57 KiB/6.57 KiB
+outcome    ------------------------------ 10.44 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 8.00 KiB/15.61 KiB
+fasteners  ------------------------------ 18.26 KiB/18.26 KiB
+parse      ------------------------------ 19.65 KiB/19.65 KiB
+parameterized ------------------------------ 16.00 KiB/20.00 KiB
+trio-websocket ------------------------------ 20.72 KiB/20.72 KiB
+wsproto    ------------------------------ 23.66 KiB/23.66 KiB
+colorama   ------------------------------ 16.00 KiB/24.74 KiB
+sortedcontainers ------------------------------ 28.88 KiB/28.88 KiB
+execnet    ------------------------------ 31.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 8.00 KiB/45.31 KiB
+websocket-client ------------------------------ 24.00 KiB/57.45 KiB
+wheel      ------------------------------ 24.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 39.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 39.26 KiB/103.90 KiB
+pynose     ------------------------------ 8.00 KiB/127.64 KiB
+jinja2     ------------------------------ 73.16 KiB/131.74 KiB
+behave     ------------------------------ 31.50 KiB/133.57 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+iniconfig  ------------------------------ 5.91 KiB/5.91 KiB
+tabcompleter ------------------------------ 6.57 KiB/6.57 KiB
+outcome    ------------------------------ 10.44 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 15.61 KiB/15.61 KiB
+fasteners  ------------------------------ 18.26 KiB/18.26 KiB
+parse      ------------------------------ 19.65 KiB/19.65 KiB
+parameterized ------------------------------ 16.00 KiB/20.00 KiB
+trio-websocket ------------------------------ 20.72 KiB/20.72 KiB
+wsproto    ------------------------------ 23.66 KiB/23.66 KiB
+colorama   ------------------------------ 16.00 KiB/24.74 KiB
+execnet    ------------------------------ 31.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 8.00 KiB/45.31 KiB
+websocket-client ------------------------------ 24.00 KiB/57.45 KiB
+wheel      ------------------------------ 24.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 47.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 63.26 KiB/103.90 KiB
+pynose     ------------------------------ 8.00 KiB/127.64 KiB
+jinja2     ------------------------------ 73.16 KiB/131.74 KiB
+behave     ------------------------------ 31.50 KiB/133.57 KiB
+python-xlib ------------------------------ 31.25 KiB/177.92 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+iniconfig  ------------------------------ 5.91 KiB/5.91 KiB
+tabcompleter ------------------------------ 6.57 KiB/6.57 KiB
+outcome    ------------------------------ 10.44 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 15.61 KiB/15.61 KiB
+fasteners  ------------------------------ 18.26 KiB/18.26 KiB
+parse      ------------------------------ 19.65 KiB/19.65 KiB
+parameterized ------------------------------ 16.00 KiB/20.00 KiB
+trio-websocket ------------------------------ 20.72 KiB/20.72 KiB
+wsproto    ------------------------------ 23.66 KiB/23.66 KiB
+colorama   ------------------------------ 16.00 KiB/24.74 KiB
+execnet    ------------------------------ 31.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 8.00 KiB/45.31 KiB
+websocket-client ------------------------------ 24.00 KiB/57.45 KiB
+wheel      ------------------------------ 24.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 47.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 63.26 KiB/103.90 KiB
+pynose     ------------------------------ 8.00 KiB/127.64 KiB
+jinja2     ------------------------------ 73.16 KiB/131.74 KiB
+behave     ------------------------------ 31.50 KiB/133.57 KiB
+python-xlib ------------------------------ 31.25 KiB/177.92 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+iniconfig  ------------------------------ 5.91 KiB/5.91 KiB
+tabcompleter ------------------------------ 6.57 KiB/6.57 KiB
+outcome    ------------------------------ 10.44 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 15.61 KiB/15.61 KiB
+fasteners  ------------------------------ 18.26 KiB/18.26 KiB
+parameterized ------------------------------ 16.00 KiB/20.00 KiB
+trio-websocket ------------------------------ 20.72 KiB/20.72 KiB
+wsproto    ------------------------------ 23.66 KiB/23.66 KiB
+colorama   ------------------------------ 16.00 KiB/24.74 KiB
+execnet    ------------------------------ 31.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 8.00 KiB/45.31 KiB
+websocket-client ------------------------------ 24.00 KiB/57.45 KiB
+wheel      ------------------------------ 24.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 47.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 63.26 KiB/103.90 KiB
+pynose     ------------------------------ 8.00 KiB/127.64 KiB
+jinja2     ------------------------------ 73.16 KiB/131.74 KiB
+behave     ------------------------------ 31.50 KiB/133.57 KiB
+python-xlib ------------------------------ 31.25 KiB/177.92 KiB
+websockets ------------------------------ 87.18 KiB/178.25 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+iniconfig  ------------------------------ 5.91 KiB/5.91 KiB
+tabcompleter ------------------------------ 6.57 KiB/6.57 KiB
+outcome    ------------------------------ 10.44 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 15.61 KiB/15.61 KiB
+fasteners  ------------------------------ 18.26 KiB/18.26 KiB
+parameterized ------------------------------ 20.00 KiB/20.00 KiB
+wsproto    ------------------------------ 23.66 KiB/23.66 KiB
+colorama   ------------------------------ 16.00 KiB/24.74 KiB
+execnet    ------------------------------ 31.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 16.00 KiB/45.31 KiB
+websocket-client ------------------------------ 24.00 KiB/57.45 KiB
+wheel      ------------------------------ 24.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 47.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 63.26 KiB/103.90 KiB
+pynose     ------------------------------ 8.00 KiB/127.64 KiB
+jinja2     ------------------------------ 81.16 KiB/131.74 KiB
+behave     ------------------------------ 31.50 KiB/133.57 KiB
+python-xlib ------------------------------ 31.25 KiB/177.92 KiB
+websockets ------------------------------ 95.18 KiB/178.25 KiB
+chardet    ------------------------------ 31.26 KiB/194.71 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+iniconfig  ------------------------------ 5.91 KiB/5.91 KiB
+tabcompleter ------------------------------ 6.57 KiB/6.57 KiB
+outcome    ------------------------------ 10.44 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 15.61 KiB/15.61 KiB
+parameterized ------------------------------ 20.00 KiB/20.00 KiB
+wsproto    ------------------------------ 23.66 KiB/23.66 KiB
+colorama   ------------------------------ 16.00 KiB/24.74 KiB
+execnet    ------------------------------ 31.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 16.00 KiB/45.31 KiB
+websocket-client ------------------------------ 24.00 KiB/57.45 KiB
+wheel      ------------------------------ 24.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 47.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 63.26 KiB/103.90 KiB
+pynose     ------------------------------ 8.00 KiB/127.64 KiB
+jinja2     ------------------------------ 81.16 KiB/131.74 KiB
+behave     ------------------------------ 31.50 KiB/133.57 KiB
+python-xlib ------------------------------ 31.25 KiB/177.92 KiB
+websockets ------------------------------ 95.18 KiB/178.25 KiB
+chardet    ------------------------------ 31.26 KiB/194.71 KiB
+rich       ------------------------------ 50.60 KiB/237.66 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+tabcompleter ------------------------------ 6.57 KiB/6.57 KiB
+outcome    ------------------------------ 10.44 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 15.61 KiB/15.61 KiB
+parameterized ------------------------------ 20.00 KiB/20.00 KiB
+wsproto    ------------------------------ 23.66 KiB/23.66 KiB
+colorama   ------------------------------ 16.00 KiB/24.74 KiB
+execnet    ------------------------------ 31.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 16.00 KiB/45.31 KiB
+websocket-client ------------------------------ 24.00 KiB/57.45 KiB
+wheel      ------------------------------ 24.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 47.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 71.26 KiB/103.90 KiB
+pynose     ------------------------------ 8.00 KiB/127.64 KiB
+jinja2     ------------------------------ 81.16 KiB/131.74 KiB
+behave     ------------------------------ 31.50 KiB/133.57 KiB
+python-xlib ------------------------------ 39.25 KiB/177.92 KiB
+websockets ------------------------------ 95.18 KiB/178.25 KiB
+chardet    ------------------------------ 31.26 KiB/194.71 KiB
+rich       ------------------------------ 50.60 KiB/237.66 KiB
+mycdp      ------------------------------ 95.26 KiB/243.25 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+tabcompleter ------------------------------ 6.57 KiB/6.57 KiB
+outcome    ------------------------------ 10.44 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 15.61 KiB/15.61 KiB
+parameterized ------------------------------ 20.00 KiB/20.00 KiB
+colorama   ------------------------------ 16.00 KiB/24.74 KiB
+execnet    ------------------------------ 31.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 16.00 KiB/45.31 KiB
+websocket-client ------------------------------ 31.25 KiB/57.45 KiB
+wheel      ------------------------------ 24.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 47.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 71.26 KiB/103.90 KiB
+pynose     ------------------------------ 8.00 KiB/127.64 KiB
+jinja2     ------------------------------ 89.16 KiB/131.74 KiB
+behave     ------------------------------ 39.50 KiB/133.57 KiB
+python-xlib ------------------------------ 39.25 KiB/177.92 KiB
+websockets ------------------------------ 103.18 KiB/178.25 KiB
+chardet    ------------------------------ 39.26 KiB/194.71 KiB
+rich       ------------------------------ 50.60 KiB/237.66 KiB
+mycdp      ------------------------------ 95.26 KiB/243.25 KiB
+pytest     ------------------------------ 87.26 KiB/357.18 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+outcome    ------------------------------ 10.44 KiB/10.44 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 15.61 KiB/15.61 KiB
+parameterized ------------------------------ 20.00 KiB/20.00 KiB
+colorama   ------------------------------ 16.00 KiB/24.74 KiB
+execnet    ------------------------------ 31.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 16.00 KiB/45.31 KiB
+websocket-client ------------------------------ 31.25 KiB/57.45 KiB
+wheel      ------------------------------ 24.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 47.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 71.26 KiB/103.90 KiB
+pynose     ------------------------------ 8.00 KiB/127.64 KiB
+jinja2     ------------------------------ 89.16 KiB/131.74 KiB
+behave     ------------------------------ 39.50 KiB/133.57 KiB
+python-xlib ------------------------------ 39.25 KiB/177.92 KiB
+websockets ------------------------------ 103.18 KiB/178.25 KiB
+chardet    ------------------------------ 39.26 KiB/194.71 KiB
+rich       ------------------------------ 50.60 KiB/237.66 KiB
+mycdp      ------------------------------ 95.26 KiB/243.25 KiB
+pytest     ------------------------------ 87.26 KiB/357.18 KiB
+trio       ------------------------------ 39.27 KiB/487.49 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+pytest-metadata ------------------------------ 8.00 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 15.61 KiB/15.61 KiB
+parameterized ------------------------------ 20.00 KiB/20.00 KiB
+colorama   ------------------------------ 16.00 KiB/24.74 KiB
+execnet    ------------------------------ 31.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 16.00 KiB/45.31 KiB
+websocket-client ------------------------------ 31.25 KiB/57.45 KiB
+wheel      ------------------------------ 24.00 KiB/70.79 KiB
+markdown-it-py ------------------------------ 47.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 71.26 KiB/103.90 KiB
+pynose     ------------------------------ 8.00 KiB/127.64 KiB
+jinja2     ------------------------------ 89.16 KiB/131.74 KiB
+behave     ------------------------------ 39.50 KiB/133.57 KiB
+python-xlib ------------------------------ 39.25 KiB/177.92 KiB
+websockets ------------------------------ 103.18 KiB/178.25 KiB
+chardet    ------------------------------ 39.26 KiB/194.71 KiB
+rich       ------------------------------ 58.60 KiB/237.66 KiB
+mycdp      ------------------------------ 95.26 KiB/243.25 KiB
+pytest     ------------------------------ 87.26 KiB/357.18 KiB
+trio       ------------------------------ 39.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 31.26 KiB/621.59 KiB⠙ Preparing packages... (0/45)
+pytest-ordering ------------------------------ 4.53 KiB/4.53 KiB
+pytest-metadata ------------------------------ 11.16 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 8.00 KiB/12.20 KiB
+filelock   ------------------------------ 15.61 KiB/15.61 KiB
+colorama   ------------------------------ 16.00 KiB/24.74 KiB
+execnet    ------------------------------ 31.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 24.00 KiB/45.31 KiB
+websocket-client ------------------------------ 31.25 KiB/57.45 KiB
+wheel      ------------------------------ 31.26 KiB/70.79 KiB
+markdown-it-py ------------------------------ 47.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 87.26 KiB/103.90 KiB
+pynose     ------------------------------ 16.00 KiB/127.64 KiB
+jinja2     ------------------------------ 89.16 KiB/131.74 KiB
+behave     ------------------------------ 55.50 KiB/133.57 KiB
+python-xlib ------------------------------ 39.25 KiB/177.92 KiB
+websockets ------------------------------ 103.18 KiB/178.25 KiB
+chardet    ------------------------------ 55.26 KiB/194.71 KiB
+rich       ------------------------------ 58.60 KiB/237.66 KiB
+mycdp      ------------------------------ 103.26 KiB/243.25 KiB
+pytest     ------------------------------ 103.26 KiB/357.18 KiB
+trio       ------------------------------ 55.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 39.26 KiB/621.59 KiB
+pygments   ------------------------------ 25.80 KiB/1.17 MiB⠙ Preparing packages... (0/45)
+pytest-metadata ------------------------------ 11.16 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 12.20 KiB/12.20 KiB
+filelock   ------------------------------ 15.61 KiB/15.61 KiB
+colorama   ------------------------------ 24.00 KiB/24.74 KiB
+execnet    ------------------------------ 39.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 31.26 KiB/45.31 KiB
+websocket-client ------------------------------ 39.25 KiB/57.45 KiB
+wheel      ------------------------------ 31.26 KiB/70.79 KiB
+markdown-it-py ------------------------------ 55.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 103.26 KiB/103.90 KiB
+pynose     ------------------------------ 24.00 KiB/127.64 KiB
+jinja2     ------------------------------ 105.16 KiB/131.74 KiB
+behave     ------------------------------ 71.50 KiB/133.57 KiB
+python-xlib ------------------------------ 87.25 KiB/177.92 KiB
+websockets ------------------------------ 119.18 KiB/178.25 KiB
+chardet    ------------------------------ 71.26 KiB/194.71 KiB
+rich       ------------------------------ 66.60 KiB/237.66 KiB
+mycdp      ------------------------------ 111.26 KiB/243.25 KiB
+pytest     ------------------------------ 119.26 KiB/357.18 KiB
+trio       ------------------------------ 63.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 39.26 KiB/621.59 KiB
+pygments   ------------------------------ 49.80 KiB/1.17 MiB
+pip        ------------------------------ 79.26 KiB/1.67 MiB⠙ Preparing packages... (0/45)
+pytest-metadata ------------------------------ 11.16 KiB/11.16 KiB
+sbvirtualdisplay ------------------------------ 12.20 KiB/12.20 KiB
+colorama   ------------------------------ 24.00 KiB/24.74 KiB
+execnet    ------------------------------ 39.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 31.26 KiB/45.31 KiB
+websocket-client ------------------------------ 39.25 KiB/57.45 KiB
+wheel      ------------------------------ 31.26 KiB/70.79 KiB
+markdown-it-py ------------------------------ 55.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 103.26 KiB/103.90 KiB
+pynose     ------------------------------ 24.00 KiB/127.64 KiB
+jinja2     ------------------------------ 105.16 KiB/131.74 KiB
+behave     ------------------------------ 71.50 KiB/133.57 KiB
+python-xlib ------------------------------ 87.25 KiB/177.92 KiB
+websockets ------------------------------ 119.18 KiB/178.25 KiB
+chardet    ------------------------------ 71.26 KiB/194.71 KiB
+rich       ------------------------------ 66.60 KiB/237.66 KiB
+mycdp      ------------------------------ 111.26 KiB/243.25 KiB
+pytest     ------------------------------ 119.26 KiB/357.18 KiB
+trio       ------------------------------ 63.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 47.26 KiB/621.59 KiB
+pygments   ------------------------------ 49.80 KiB/1.17 MiB
+pip        ------------------------------ 79.26 KiB/1.67 MiB
+selenium   ------------------------------ 16.00 KiB/9.16 MiB                    ⠙ Preparing packages... (0/45)
+sbvirtualdisplay ------------------------------ 12.20 KiB/12.20 KiB
+colorama   ------------------------------ 24.00 KiB/24.74 KiB
+execnet    ------------------------------ 39.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 31.26 KiB/45.31 KiB
+websocket-client ------------------------------ 39.25 KiB/57.45 KiB
+wheel      ------------------------------ 31.26 KiB/70.79 KiB
+markdown-it-py ------------------------------ 55.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 103.26 KiB/103.90 KiB
+pynose     ------------------------------ 31.26 KiB/127.64 KiB
+jinja2     ------------------------------ 121.16 KiB/131.74 KiB
+behave     ------------------------------ 79.50 KiB/133.57 KiB
+python-xlib ------------------------------ 95.25 KiB/177.92 KiB
+websockets ------------------------------ 135.18 KiB/178.25 KiB
+chardet    ------------------------------ 87.26 KiB/194.71 KiB
+rich       ------------------------------ 66.60 KiB/237.66 KiB
+mycdp      ------------------------------ 111.26 KiB/243.25 KiB
+pytest     ------------------------------ 127.26 KiB/357.18 KiB
+trio       ------------------------------ 63.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 55.26 KiB/621.59 KiB
+pygments   ------------------------------ 54.87 KiB/1.17 MiB
+pip        ------------------------------ 79.26 KiB/1.67 MiB
+selenium   ------------------------------ 24.00 KiB/9.16 MiB                    ⠙ Preparing packages... (0/45)
+sbvirtualdisplay ------------------------------ 12.20 KiB/12.20 KiB
+execnet    ------------------------------ 39.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 39.26 KiB/45.31 KiB
+websocket-client ------------------------------ 39.25 KiB/57.45 KiB
+wheel      ------------------------------ 39.26 KiB/70.79 KiB
+markdown-it-py ------------------------------ 55.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 103.26 KiB/103.90 KiB
+pynose     ------------------------------ 31.26 KiB/127.64 KiB
+jinja2     ------------------------------ 129.16 KiB/131.74 KiB
+behave     ------------------------------ 79.50 KiB/133.57 KiB
+python-xlib ------------------------------ 95.25 KiB/177.92 KiB
+websockets ------------------------------ 135.18 KiB/178.25 KiB
+chardet    ------------------------------ 103.26 KiB/194.71 KiB
+rich       ------------------------------ 74.60 KiB/237.66 KiB
+mycdp      ------------------------------ 119.26 KiB/243.25 KiB
+pytest     ------------------------------ 159.26 KiB/357.18 KiB
+trio       ------------------------------ 79.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 63.26 KiB/621.59 KiB
+pygments   ------------------------------ 62.87 KiB/1.17 MiB
+pip        ------------------------------ 95.26 KiB/1.67 MiB
+selenium   ------------------------------ 24.00 KiB/9.16 MiB                    ⠙ Preparing packages... (0/45)
+execnet    ------------------------------ 39.26 KiB/39.66 KiB
+pytest-xdist ------------------------------ 39.26 KiB/45.31 KiB
+websocket-client ------------------------------ 39.25 KiB/57.45 KiB
+wheel      ------------------------------ 39.26 KiB/70.79 KiB
+markdown-it-py ------------------------------ 55.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 103.26 KiB/103.90 KiB
+pynose     ------------------------------ 31.26 KiB/127.64 KiB
+jinja2     ------------------------------ 129.16 KiB/131.74 KiB
+behave     ------------------------------ 79.50 KiB/133.57 KiB
+python-xlib ------------------------------ 95.25 KiB/177.92 KiB
+websockets ------------------------------ 135.18 KiB/178.25 KiB
+chardet    ------------------------------ 103.26 KiB/194.71 KiB
+rich       ------------------------------ 74.60 KiB/237.66 KiB
+mycdp      ------------------------------ 119.26 KiB/243.25 KiB
+pytest     ------------------------------ 159.26 KiB/357.18 KiB
+trio       ------------------------------ 79.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 71.26 KiB/621.59 KiB
+pygments   ------------------------------ 62.87 KiB/1.17 MiB
+pip        ------------------------------ 95.26 KiB/1.67 MiB
+selenium   ------------------------------ 24.00 KiB/9.16 MiB                    ⠙ Preparing packages... (0/45)
+pytest-xdist ------------------------------ 39.26 KiB/45.31 KiB
+websocket-client ------------------------------ 47.25 KiB/57.45 KiB
+wheel      ------------------------------ 39.26 KiB/70.79 KiB
+markdown-it-py ------------------------------ 55.26 KiB/85.27 KiB
+beautifulsoup4 ------------------------------ 103.26 KiB/103.90 KiB
+pynose     ------------------------------ 31.26 KiB/127.64 KiB
+jinja2     ------------------------------ 129.16 KiB/131.74 KiB
+behave     ------------------------------ 87.50 KiB/133.57 KiB
+python-xlib ------------------------------ 95.25 KiB/177.92 KiB
+websockets ------------------------------ 135.18 KiB/178.25 KiB
+chardet    ------------------------------ 111.26 KiB/194.71 KiB
+rich       ------------------------------ 74.60 KiB/237.66 KiB
+mycdp      ------------------------------ 119.26 KiB/243.25 KiB
+pytest     ------------------------------ 167.26 KiB/357.18 KiB
+trio       ------------------------------ 95.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 71.26 KiB/621.59 KiB
+pygments   ------------------------------ 70.87 KiB/1.17 MiB
+pip        ------------------------------ 95.26 KiB/1.67 MiB
+selenium   ------------------------------ 24.00 KiB/9.16 MiB                    ⠙ Preparing packages... (0/45)
+pytest-xdist ------------------------------ 45.31 KiB/45.31 KiB
+websocket-client ------------------------------ 47.25 KiB/57.45 KiB
+wheel      ------------------------------ 39.26 KiB/70.79 KiB
+markdown-it-py ------------------------------ 63.26 KiB/85.27 KiB
+pynose     ------------------------------ 39.26 KiB/127.64 KiB
+jinja2     ------------------------------ 129.16 KiB/131.74 KiB
+behave     ------------------------------ 87.50 KiB/133.57 KiB
+python-xlib ------------------------------ 103.25 KiB/177.92 KiB
+websockets ------------------------------ 135.18 KiB/178.25 KiB
+chardet    ------------------------------ 119.26 KiB/194.71 KiB
+rich       ------------------------------ 74.60 KiB/237.66 KiB
+mycdp      ------------------------------ 143.26 KiB/243.25 KiB
+pytest     ------------------------------ 183.26 KiB/357.18 KiB
+trio       ------------------------------ 103.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 79.26 KiB/621.59 KiB
+pygments   ------------------------------ 70.87 KiB/1.17 MiB
+pip        ------------------------------ 95.26 KiB/1.67 MiB
+selenium   ------------------------------ 31.26 KiB/9.16 MiB                    ⠙ Preparing packages... (0/45)
+pytest-xdist ------------------------------ 45.31 KiB/45.31 KiB
+websocket-client ------------------------------ 47.25 KiB/57.45 KiB
+wheel      ------------------------------ 55.26 KiB/70.79 KiB
+markdown-it-py ------------------------------ 63.26 KiB/85.27 KiB
+pynose     ------------------------------ 47.26 KiB/127.64 KiB
+behave     ------------------------------ 87.50 KiB/133.57 KiB
+python-xlib ------------------------------ 103.25 KiB/177.92 KiB
+websockets ------------------------------ 175.18 KiB/178.25 KiB
+chardet    ------------------------------ 151.26 KiB/194.71 KiB
+rich       ------------------------------ 106.60 KiB/237.66 KiB
+mycdp      ------------------------------ 183.26 KiB/243.25 KiB
+pytest     ------------------------------ 199.26 KiB/357.18 KiB
+trio       ------------------------------ 127.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 103.26 KiB/621.59 KiB
+pygments   ------------------------------ 94.87 KiB/1.17 MiB
+pip        ------------------------------ 103.26 KiB/1.67 MiB
+selenium   ------------------------------ 39.26 KiB/9.16 MiB                    ⠙ Preparing packages... (0/45)
+websocket-client ------------------------------ 55.25 KiB/57.45 KiB
+wheel      ------------------------------ 63.26 KiB/70.79 KiB
+markdown-it-py ------------------------------ 63.26 KiB/85.27 KiB
+pynose     ------------------------------ 55.26 KiB/127.64 KiB
+behave     ------------------------------ 87.50 KiB/133.57 KiB
+python-xlib ------------------------------ 103.25 KiB/177.92 KiB
+websockets ------------------------------ 175.18 KiB/178.25 KiB
+chardet    ------------------------------ 151.26 KiB/194.71 KiB
+rich       ------------------------------ 106.60 KiB/237.66 KiB
+mycdp      ------------------------------ 191.26 KiB/243.25 KiB
+pytest     ------------------------------ 199.26 KiB/357.18 KiB
+trio       ------------------------------ 127.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 103.26 KiB/621.59 KiB
+pygments   ------------------------------ 94.87 KiB/1.17 MiB
+pip        ------------------------------ 103.26 KiB/1.67 MiB
+selenium   ------------------------------ 39.26 KiB/9.16 MiB                    ⠹ Preparing packages... (29/45)
+websocket-client ------------------------------ 55.25 KiB/57.45 KiB
+wheel      ------------------------------ 70.79 KiB/70.79 KiB
+markdown-it-py ------------------------------ 63.26 KiB/85.27 KiB
+pynose     ------------------------------ 55.26 KiB/127.64 KiB
+behave     ------------------------------ 95.50 KiB/133.57 KiB
+python-xlib ------------------------------ 103.25 KiB/177.92 KiB
+websockets ------------------------------ 175.18 KiB/178.25 KiB
+chardet    ------------------------------ 159.26 KiB/194.71 KiB
+rich       ------------------------------ 106.60 KiB/237.66 KiB
+mycdp      ------------------------------ 191.26 KiB/243.25 KiB
+pytest     ------------------------------ 207.26 KiB/357.18 KiB
+trio       ------------------------------ 135.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 103.26 KiB/621.59 KiB
+pygments   ------------------------------ 102.87 KiB/1.17 MiB
+pip        ------------------------------ 103.26 KiB/1.67 MiB
+selenium   ------------------------------ 39.26 KiB/9.16 MiB                    ⠹ Preparing packages... (29/45)
+websocket-client ------------------------------ 55.25 KiB/57.45 KiB
+wheel      ------------------------------ 70.79 KiB/70.79 KiB
+markdown-it-py ------------------------------ 63.26 KiB/85.27 KiB
+pynose     ------------------------------ 63.26 KiB/127.64 KiB
+behave     ------------------------------ 95.50 KiB/133.57 KiB
+python-xlib ------------------------------ 103.25 KiB/177.92 KiB
+websockets ------------------------------ 175.18 KiB/178.25 KiB
+chardet    ------------------------------ 159.26 KiB/194.71 KiB
+rich       ------------------------------ 106.60 KiB/237.66 KiB
+mycdp      ------------------------------ 191.26 KiB/243.25 KiB
+pytest     ------------------------------ 207.26 KiB/357.18 KiB
+trio       ------------------------------ 135.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 103.26 KiB/621.59 KiB
+pygments   ------------------------------ 102.87 KiB/1.17 MiB
+pip        ------------------------------ 103.26 KiB/1.67 MiB
+selenium   ------------------------------ 39.26 KiB/9.16 MiB                    ⠹ Preparing packages... (29/45)
+websocket-client ------------------------------ 55.25 KiB/57.45 KiB
+wheel      ------------------------------ 70.79 KiB/70.79 KiB
+markdown-it-py ------------------------------ 71.26 KiB/85.27 KiB
+pynose     ------------------------------ 63.26 KiB/127.64 KiB
+behave     ------------------------------ 95.50 KiB/133.57 KiB
+python-xlib ------------------------------ 103.25 KiB/177.92 KiB
+chardet    ------------------------------ 159.26 KiB/194.71 KiB
+rich       ------------------------------ 106.60 KiB/237.66 KiB
+mycdp      ------------------------------ 207.26 KiB/243.25 KiB
+pytest     ------------------------------ 207.26 KiB/357.18 KiB
+trio       ------------------------------ 135.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 143.26 KiB/621.59 KiB
+pygments   ------------------------------ 102.87 KiB/1.17 MiB
+pip        ------------------------------ 103.26 KiB/1.67 MiB
+selenium   ------------------------------ 39.26 KiB/9.16 MiB                    ⠹ Preparing packages... (29/45)
+wheel      ------------------------------ 70.79 KiB/70.79 KiB
+markdown-it-py ------------------------------ 71.26 KiB/85.27 KiB
+pynose     ------------------------------ 63.26 KiB/127.64 KiB
+behave     ------------------------------ 95.50 KiB/133.57 KiB
+python-xlib ------------------------------ 111.25 KiB/177.92 KiB
+chardet    ------------------------------ 159.26 KiB/194.71 KiB
+rich       ------------------------------ 114.60 KiB/237.66 KiB
+mycdp      ------------------------------ 223.26 KiB/243.25 KiB
+pytest     ------------------------------ 223.26 KiB/357.18 KiB
+trio       ------------------------------ 135.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 143.26 KiB/621.59 KiB
+pygments   ------------------------------ 102.87 KiB/1.17 MiB
+pip        ------------------------------ 119.26 KiB/1.67 MiB
+selenium   ------------------------------ 39.26 KiB/9.16 MiB                    ⠹ Preparing packages... (29/45)
+markdown-it-py ------------------------------ 71.26 KiB/85.27 KiB
+pynose     ------------------------------ 63.26 KiB/127.64 KiB
+behave     ------------------------------ 95.50 KiB/133.57 KiB
+python-xlib ------------------------------ 111.25 KiB/177.92 KiB
+chardet    ------------------------------ 167.26 KiB/194.71 KiB
+rich       ------------------------------ 114.60 KiB/237.66 KiB
+mycdp      ------------------------------ 231.26 KiB/243.25 KiB
+pytest     ------------------------------ 231.26 KiB/357.18 KiB
+trio       ------------------------------ 143.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 143.26 KiB/621.59 KiB
+pygments   ------------------------------ 118.87 KiB/1.17 MiB
+pip        ------------------------------ 119.26 KiB/1.67 MiB
+selenium   ------------------------------ 47.26 KiB/9.16 MiB                    ⠹ Preparing packages... (29/45)
+markdown-it-py ------------------------------ 85.27 KiB/85.27 KiB
+pynose     ------------------------------ 103.26 KiB/127.64 KiB
+behave     ------------------------------ 119.50 KiB/133.57 KiB
+python-xlib ------------------------------ 135.25 KiB/177.92 KiB
+chardet    ------------------------------ 191.26 KiB/194.71 KiB
+rich       ------------------------------ 154.60 KiB/237.66 KiB
+pytest     ------------------------------ 263.26 KiB/357.18 KiB
+trio       ------------------------------ 159.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 191.26 KiB/621.59 KiB
+pygments   ------------------------------ 230.87 KiB/1.17 MiB
+pip        ------------------------------ 151.26 KiB/1.67 MiB
+selenium   ------------------------------ 71.26 KiB/9.16 MiB                    ⠹ Preparing packages... (29/45)
+pynose     ------------------------------ 103.26 KiB/127.64 KiB
+behave     ------------------------------ 119.50 KiB/133.57 KiB
+python-xlib ------------------------------ 135.25 KiB/177.92 KiB
+chardet    ------------------------------ 191.26 KiB/194.71 KiB
+rich       ------------------------------ 154.60 KiB/237.66 KiB
+pytest     ------------------------------ 263.26 KiB/357.18 KiB
+trio       ------------------------------ 159.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 191.26 KiB/621.59 KiB
+pygments   ------------------------------ 230.87 KiB/1.17 MiB
+pip        ------------------------------ 151.26 KiB/1.67 MiB
+selenium   ------------------------------ 71.26 KiB/9.16 MiB                    ⠹ Preparing packages... (29/45)
+pynose     ------------------------------ 103.26 KiB/127.64 KiB
+behave     ------------------------------ 127.50 KiB/133.57 KiB
+python-xlib ------------------------------ 143.25 KiB/177.92 KiB
+rich       ------------------------------ 170.60 KiB/237.66 KiB
+pytest     ------------------------------ 279.26 KiB/357.18 KiB
+trio       ------------------------------ 191.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 199.26 KiB/621.59 KiB
+pygments   ------------------------------ 262.87 KiB/1.17 MiB
+pip        ------------------------------ 151.26 KiB/1.67 MiB
+selenium   ------------------------------ 79.26 KiB/9.16 MiB                    ⠹ Preparing packages... (29/45)
+pynose     ------------------------------ 127.26 KiB/127.64 KiB
+python-xlib ------------------------------ 159.25 KiB/177.92 KiB
+rich       ------------------------------ 178.60 KiB/237.66 KiB
+pytest     ------------------------------ 327.26 KiB/357.18 KiB
+trio       ------------------------------ 239.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 231.26 KiB/621.59 KiB
+pygments   ------------------------------ 318.87 KiB/1.17 MiB
+pip        ------------------------------ 167.26 KiB/1.67 MiB
+selenium   ------------------------------ 111.26 KiB/9.16 MiB                   ⠹ Preparing packages... (29/45)
+python-xlib ------------------------------ 159.25 KiB/177.92 KiB
+rich       ------------------------------ 186.60 KiB/237.66 KiB
+pytest     ------------------------------ 327.26 KiB/357.18 KiB
+trio       ------------------------------ 247.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 311.26 KiB/621.59 KiB
+pygments   ------------------------------ 326.87 KiB/1.17 MiB
+pip        ------------------------------ 167.26 KiB/1.67 MiB
+selenium   ------------------------------ 119.26 KiB/9.16 MiB                   ⠹ Preparing packages... (29/45)
+rich       ------------------------------ 218.60 KiB/237.66 KiB
+pytest     ------------------------------ 343.26 KiB/357.18 KiB
+trio       ------------------------------ 263.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 351.26 KiB/621.59 KiB
+pygments   ------------------------------ 350.87 KiB/1.17 MiB
+pip        ------------------------------ 191.26 KiB/1.67 MiB
+selenium   ------------------------------ 135.26 KiB/9.16 MiB                   ⠹ Preparing packages... (29/45)
+pytest     ------------------------------ 351.26 KiB/357.18 KiB
+trio       ------------------------------ 295.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 375.26 KiB/621.59 KiB
+pygments   ------------------------------ 366.87 KiB/1.17 MiB
+pip        ------------------------------ 207.26 KiB/1.67 MiB
+selenium   ------------------------------ 159.26 KiB/9.16 MiB                   ⠹ Preparing packages... (29/45)
+trio       ------------------------------ 295.27 KiB/487.49 KiB
+seleniumbase ------------------------------ 383.26 KiB/621.59 KiB
+pygments   ------------------------------ 366.87 KiB/1.17 MiB
+pip        ------------------------------ 207.26 KiB/1.67 MiB
+selenium   ------------------------------ 167.26 KiB/9.16 MiB                   ⠹ Preparing packages... (29/45)
+trio       ------------------------------ 304.72 KiB/487.49 KiB
+seleniumbase ------------------------------ 391.26 KiB/621.59 KiB
+pygments   ------------------------------ 390.87 KiB/1.17 MiB
+pip        ------------------------------ 207.26 KiB/1.67 MiB
+selenium   ------------------------------ 191.26 KiB/9.16 MiB                   ⠹ Preparing packages... (29/45)
+trio       ------------------------------ 304.72 KiB/487.49 KiB
+seleniumbase ------------------------------ 391.26 KiB/621.59 KiB
+pygments   ------------------------------ 398.87 KiB/1.17 MiB
+pip        ------------------------------ 207.26 KiB/1.67 MiB
+selenium   ------------------------------ 191.26 KiB/9.16 MiB                   ⠹ Preparing packages... (29/45)
+trio       ------------------------------ 468.92 KiB/487.49 KiB
+pygments   ------------------------------ 598.87 KiB/1.17 MiB
+pip        ------------------------------ 359.26 KiB/1.67 MiB
+selenium   ------------------------------ 478.56 KiB/9.16 MiB                   ⠹ Preparing packages... (29/45)
+pygments   ------------------------------ 611.98 KiB/1.17 MiB
+pip        ------------------------------ 367.26 KiB/1.67 MiB
+selenium   ------------------------------ 502.56 KiB/9.16 MiB                   ⠸ Preparing packages... (42/45)
+pygments   ------------------------------ 774.87 KiB/1.17 MiB
+pip        ------------------------------ 921.84 KiB/1.67 MiB
+selenium   ------------------------------ 630.56 KiB/9.16 MiB                   ⠸ Preparing packages... (42/45)
+pygments   ------------------------------ 790.87 KiB/1.17 MiB
+pip        ------------------------------ 921.84 KiB/1.67 MiB
+selenium   ------------------------------ 630.56 KiB/9.16 MiB                   ⠸ Preparing packages... (42/45)
+pygments   ------------------------------ 998.87 KiB/1.17 MiB
+pip        ------------------------------ 1.12 MiB/1.67 MiB
+selenium   ------------------------------ 3.59 MiB/9.16 MiB                     ⠸ Preparing packages... (42/45)
+pygments   ------------------------------ 998.87 KiB/1.17 MiB
+pip        ------------------------------ 1.12 MiB/1.67 MiB
+selenium   ------------------------------ 3.60 MiB/9.16 MiB                     ⠼ Preparing packages... (42/45)
+pygments   ------------------------------ 1.00 MiB/1.17 MiB
+pip        ------------------------------ 1.18 MiB/1.67 MiB
+selenium   ------------------------------ 7.74 MiB/9.16 MiB                     ⠼ Preparing packages... (42/45)
+pygments   ------------------------------ 1.00 MiB/1.17 MiB
+pip        ------------------------------ 1.18 MiB/1.67 MiB
+selenium   ------------------------------ 7.76 MiB/9.16 MiB                     ⠼ Preparing packages... (42/45)
+pygments   ------------------------------ 1.08 MiB/1.17 MiB
+pip        ------------------------------ 1.27 MiB/1.67 MiB
+selenium   ------------------------------ 9.05 MiB/9.16 MiB                     ⠼ Preparing packages... (42/45)
+pygments   ------------------------------ 1.08 MiB/1.17 MiB
+pip        ------------------------------ 1.27 MiB/1.67 MiB
+selenium   ------------------------------ 9.07 MiB/9.16 MiB                     ⠼ Preparing packages... (42/45)
+pip        ------------------------------ 1.40 MiB/1.67 MiB
+selenium   ------------------------------ 9.14 MiB/9.16 MiB                     ⠼ Preparing packages... (42/45)
+selenium   ------------------------------ 9.15 MiB/9.16 MiB                     ⠼ Preparing packages... (42/45)                                                 Prepared 45 packages in 721ms
+Uninstalled 1 package in 0.60ms
+░░░░░░░░░░░░░░░░░░░░ [0/0] Installing wheels...                                 ░░░░░░░░░░░░░░░░░░░░ [0/47] Installing wheels...                                ░░░░░░░░░░░░░░░░░░░░ [0/47] cssselect==1.3.0                                    ░░░░░░░░░░░░░░░░░░░░ [1/47] cssselect==1.3.0                                    ░░░░░░░░░░░░░░░░░░░░ [1/47] markupsafe==3.0.3                                   ░░░░░░░░░░░░░░░░░░░░ [2/47] markupsafe==3.0.3                                   ░░░░░░░░░░░░░░░░░░░░ [2/47] mdurl==0.1.2                                        █░░░░░░░░░░░░░░░░░░░ [3/47] mdurl==0.1.2                                        █░░░░░░░░░░░░░░░░░░░ [3/47] pytest-rerunfailures==16.0.1                        █░░░░░░░░░░░░░░░░░░░ [4/47] pytest-rerunfailures==16.0.1                        █░░░░░░░░░░░░░░░░░░░ [4/47] selenium-base==4.41.12                              ██░░░░░░░░░░░░░░░░░░ [5/47] selenium-base==4.41.12                              ██░░░░░░░░░░░░░░░░░░ [5/47] parse-type==0.6.6                                   ██░░░░░░░░░░░░░░░░░░ [6/47] parse-type==0.6.6                                   ██░░░░░░░░░░░░░░░░░░ [6/47] pyotp==2.9.0                                        ██░░░░░░░░░░░░░░░░░░ [7/47] pyotp==2.9.0                                        ██░░░░░░░░░░░░░░░░░░ [7/47] pysocks==1.7.1                                      ███░░░░░░░░░░░░░░░░░ [8/47] pysocks==1.7.1                                      ███░░░░░░░░░░░░░░░░░ [8/47] exceptiongroup==1.3.0                               ███░░░░░░░░░░░░░░░░░ [9/47] exceptiongroup==1.3.0                               ████████████░░░░░░░░ [29/47] websockets==15.0.1                                 █████████████████░░░ [42/47] pygments==2.19.2                                   ███████████████████░ [46/47] setuptools==80.9.0                                 ████████████████████ [47/47] setuptools==80.9.0                                 Installed 47 packages in 821ms
+ - beautifulsoup4==4.13.5
+ + beautifulsoup4==4.14.2
+ + behave==1.2.6
+ + chardet==5.2.0
+ + colorama==0.4.6
+ + cssselect==1.3.0
+ + exceptiongroup==1.3.0
+ + execnet==2.1.1
+ + fasteners==0.20
+ + filelock==3.19.1
+ + iniconfig==2.1.0
+ + jinja2==3.1.6
+ + markdown-it-py==4.0.0
+ + markupsafe==3.0.3
+ + mdurl==0.1.2
+ + mycdp==1.2.0
+ + outcome==1.3.0.post0
+ + parameterized==0.9.0
+ + parse==1.20.2
+ + parse-type==0.6.6
+ + pdbp==1.7.1
+ + pip==25.2
+ + pluggy==1.6.0
+ + pygments==2.19.2
+ + pynose==1.5.5
+ + pyotp==2.9.0
+ + pysocks==1.7.1
+ + pytest==8.4.2
+ + pytest-html==4.0.2
+ + pytest-metadata==3.1.1
+ + pytest-ordering==0.6
+ + pytest-rerunfailures==16.0.1
+ + pytest-xdist==3.8.0
+ + python-xlib==0.33
+ + rich==14.1.0
+ + sbvirtualdisplay==1.4.0
+ + selenium==4.35.0
+ + selenium-base==4.41.12
+ + seleniumbase==4.41.12
+ + setuptools==80.9.0
+ + sortedcontainers==2.4.0
+ + tabcompleter==1.4.0
+ + trio==0.30.0
+ + trio-websocket==0.12.2
+ + websocket-client==1.8.0
+ + websockets==15.0.1
+ + wheel==0.45.1
+ + wsproto==1.2.0

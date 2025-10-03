@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOUAI - AI-Powered Education Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">S</span>
+                        </div>
+                        <span class="ml-3 text-2xl font-bold text-gray-900">SOUAI</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Ana Sayfa</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Kurslar</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">CV Oluşturucu</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">İş İlanları</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Hakkımızda</a>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6 space-x-3">
+                        <button class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
+                            Giriş Yap
+                        </button>
+                        <button class="btn-primary text-white px-4 py-2 rounded-lg text-sm font-medium">
+                            Kayıt Ol
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                    AI ile Geleceğini
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500">
+                        Şekillendir
+                    </span>
+                </h1>
+                <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    SOUAI ile kişiselleştirilmiş öğrenme deneyimi yaşa, AI destekli CV'ni oluştur ve hayallerindeki işe ulaş. 
+                    Yapay zeka gücüyle desteklenen eğitim platformumuzda sen de yerini al.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+                        🚀 Hemen Başla
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all">
+                        📺 Demo İzle
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stats Section -->
+        <div class="bg-white/10 backdrop-blur-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-3xl font-bold text-white">50K+</div>
+                        <div class="text-white/80">Aktif Öğrenci</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-white">1000+</div>
+                        <div class="text-white/80">Kurs İçeriği</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-white">95%</div>
+                        <div class="text-white/80">Başarı Oranı</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-white">24/7</div>
+                        <div class="text-white/80">AI Desteği</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Neden SOUAI?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    AI teknolojisinin gücüyle desteklenen özelliklerimizle eğitim deneyiminizi bir üst seviyeye çıkarın
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white p-8 rounded-2xl card-shadow">
+                    <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-3xl">🎯</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Kişiselleştirilmiş Öğrenme</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        AI algoritmaları öğrenme hızınızı ve tarzınızı analiz ederek size özel eğitim planları oluşturur.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white p-8 rounded-2xl card-shadow">
+                    <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-3xl">📄</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">AI CV Oluşturucu</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Yapay zeka destekli CV oluşturucumuzla profesyonel ve etkili CV'nizi dakikalar içinde hazırlayın.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white p-8 rounded-2xl card-shadow">
+                    <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-3xl">💼</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">İş Fırsatları</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Profilinize uygun iş ilanlarını AI ile eşleştiriyor, kariyer hedeflerinize ulaşmanızı sağlıyoruz.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card bg-white p-8 rounded-2xl card-shadow">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-3xl">🤖</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">AI Asistan</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        7/24 erişilebilir AI asistanımız sorularınızı yanıtlıyor ve öğrenme sürecinizde size rehberlik ediyor.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card bg-white p-8 rounded-2xl card-shadow">
+                    <div class="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-3xl">📊</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">İlerleme Takibi</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Detaylı analitikler ve raporlarla öğrenme ilerlemenizi takip edin ve güçlü-zayıf yönlerinizi keşfedin.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card bg-white p-8 rounded-2xl card-shadow">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-3xl">🏆</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Sertifikasyon</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Tamamladığınız kurslar için sektörde geçerli dijital sertifikalar alın ve kariyerinizi ilerletin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-bg py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">
+                Eğitimin Geleceği Burada Başlıyor
+            </h2>
+            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Hemen katıl, AI destekli eğitim deneyimini yaşa ve kariyerinde fark yarat
+            </p>
+            <button class="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+                Ücretsiz Denemeye Başla 🎉
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold">S</span>
+                        </div>
+                        <span class="ml-2 text-xl font-bold">SOUAI</span>
+                    </div>
+                    <p class="text-gray-400">
+                        AI ile güçlendirilmiş eğitim platformu
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Platform</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Kurslar</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">CV Oluşturucu</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">İş İlanları</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Fiyatlandırma</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Şirket</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Hakkımızda</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Kariyer</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">İletişim</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Destek</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Yardım Merkezi</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Gizlilik</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Şartlar</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">SSS</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 SOUAI. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
