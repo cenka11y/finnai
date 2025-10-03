@@ -1,5 +1,5 @@
 {
-  "name": "souai-backend",
+  "name": "suoai-backend",
   "version": "1.0.0",
   "description": "SOUAI - Online Eğitim ve Kariyer Platformu Backend API",
   "main": "dist/server.js",

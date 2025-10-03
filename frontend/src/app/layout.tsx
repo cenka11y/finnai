@@ -13,24 +13,24 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | SOUAI',
-    default: 'SOUAI - AI-Powered Orientation Platform for Immigrants in Finland',
+    template: '%s | SUOAI',
+    default: 'SUOAI - AI-Powered Orientation Platform for Immigrants in Finland',
   },
   description: 'Learn Finnish, build your career, and find municipal services with AI-powered personalization.',
   keywords: ['Finland', 'immigration', 'Finnish language', 'CV builder', 'municipal services'],
-  authors: [{ name: 'SOUAI Team' }],
+  authors: [{ name: 'SUOAI Team' }],
   creator: 'MiniMax Agent',
   openGraph: {
     type: 'website',
     locale: 'fi_FI',
     url: 'https://souai.fi',
-    title: 'SOUAI - AI-Powered Orientation Platform',
+    title: 'SUOAI - AI-Powered Orientation Platform',
     description: 'Learn Finnish, build your career, and find municipal services with AI-powered personalization.',
-    siteName: 'SOUAI',
+    siteName: 'SUOAI',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SOUAI - AI-Powered Orientation Platform',
+    title: 'SUOAI - AI-Powered Orientation Platform',
     description: 'Learn Finnish, build your career, and find municipal services with AI-powered personalization.',
   },
   robots: {

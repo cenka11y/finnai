@@ -14,7 +14,7 @@ const Header = ({ currentPage, onNavigate }) => {
       <div className="header-content">
         <a href="#" className="logo" onClick={(e) => { e.preventDefault(); onNavigate('home'); }}>
           <span>🎓</span>
-          <span>SOUAI</span>
+          <span>SUOAI</span>
         </a>
         
         <nav className="nav">

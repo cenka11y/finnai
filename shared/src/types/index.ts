@@ -1,4 +1,4 @@
-// Shared type definitions for the SOUAI application
+// Shared type definitions for the SUOAI application
 
 export interface User {
   id: string;

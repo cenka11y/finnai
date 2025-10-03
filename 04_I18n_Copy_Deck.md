@@ -1,11 +1,11 @@
-# SOUAI - Internationalization Copy Deck
+# SUOAI - Internationalization Copy Deck
 
 ## Finnish (fi) - Primary Language
 
 ```json
 {
   "common": {
-    "appName": "SOUAI",
+    "appName": "SUOAI",
     "tagline": "AI-pohjainen integraatio-alusta Suomen maahanmuuttajille",
     "welcome": "Tervetuloa",
     "loading": "Ladataan...",
@@ -364,7 +364,7 @@
 ```json
 {
   "common": {
-    "appName": "SOUAI",
+    "appName": "SUOAI",
     "tagline": "[EN] AI-powered integration platform for immigrants in Finland",
     "welcome": "[EN] Welcome",
     // ... all keys with [EN] prefix for translation
@@ -383,7 +383,7 @@
 ```json
 {
   "common": {
-    "appName": "SOUAI", 
+    "appName": "SUOAI", 
     "tagline": "[TR] Finlandiya'daki göçmenler için AI destekli entegrasyon platformu",
     "welcome": "[TR] Hoş geldiniz",
     // ... all keys with [TR] prefix
@@ -397,7 +397,7 @@
 ```json
 {
   "common": {
-    "appName": "SOUAI",
+    "appName": "SUOAI",
     "tagline": "[AR] منصة تكامل مدعومة بالذكاء الاصطناعي للمهاجرين في فنلندا",
     "welcome": "[AR] أهلاً وسهلاً",
     // ... all keys with [AR] prefix
@@ -411,7 +411,7 @@
 ```json
 {
   "common": {
-    "appName": "SOUAI",
+    "appName": "SUOAI",
     "tagline": "[RU] Платформа интеграции на базе ИИ для иммигрантов в Финляндии", 
     "welcome": "[RU] Добро пожаловать",
     // ... all keys with [RU] prefix
@@ -425,7 +425,7 @@
 ```json
 {
   "common": {
-    "appName": "SOUAI",
+    "appName": "SUOAI",
     "tagline": "[SO] Barnamij-sahmin AI ah oo loogu talagalay dadka Finland ku soo gala",
     "welcome": "[SO] Soo dhawoow", 
     // ... all keys with [SO] prefix
@@ -470,4 +470,4 @@
 - A/B testing for key conversion points
 - Regular updates based on user feedback
 
-This copy deck serves as the foundation for all user-facing text in SOUAI, ensuring consistent, culturally appropriate communication across all supported languages.
+This copy deck serves as the foundation for all user-facing text in SUOAI, ensuring consistent, culturally appropriate communication across all supported languages.

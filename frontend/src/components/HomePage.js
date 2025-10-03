@@ -44,7 +44,7 @@ const HomePage = () => {
     <div className="main-content">
       {/* Hero Section */}
       <section className="hero">
-        <h1>🎓 SOUAI'ye Hoş Geldiniz</h1>
+        <h1>🎓 SUOAI'ye Hoş Geldiniz</h1>
         <p>Suomen kielen öğrenme ve kariyer geliştirme platformunuz</p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="#" className="btn btn-primary">🚀 Kurslara Başla</a>

@@ -1,9 +1,9 @@
-# SOUAI - Information Architecture & Sitemap
+# SUOAI - Information Architecture & Sitemap
 
 ## 1. Site Structure
 
 ```
-SOUAI Platform
+SUOAI Platform
 ├── Landing Page (Multi-language)
 │   ├── Language Selection
 │   ├── Feature Overview

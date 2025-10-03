@@ -82,13 +82,13 @@ const App = () => {
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ marginBottom: '1rem' }}>
-            <strong>SOUAI</strong> - Online Eğitim ve Kariyer Platformu
+            <strong>SUOAI</strong> - Online Eğitim ve Kariyer Platformu
           </div>
           <div style={{ fontSize: '0.875rem', opacity: 0.8 }}>
             Suomen kielen öğrenme ve kariyer geliştirme platformunuz
           </div>
           <div style={{ fontSize: '0.8rem', marginTop: '1rem', opacity: 0.6 }}>
-            © 2025 SOUAI - Tüm hakları saklıdır
+            © 2025 SUOAI - Tüm hakları saklıdır
           </div>
         </div>
       </footer>

@@ -1,15 +1,15 @@
-# SOUAI - Complete Specifications Package
+# SUOAI - Complete Specifications Package
 
 ## Executive Summary
 
-This comprehensive specifications package delivers the complete design and development plan for **SOUAI**, an AI-powered integration platform for immigrants in Finland. The platform replaces the existing finnai.voon.fi with a modern, accessible, and culturally-appropriate solution that accelerates immigrant integration through personalized language learning, career support, and verified municipal services.
+This comprehensive specifications package delivers the complete design and development plan for **SUOAI**, an AI-powered integration platform for immigrants in Finland. The platform replaces the existing finnai.voon.fi with a modern, accessible, and culturally-appropriate solution that accelerates immigrant integration through personalized language learning, career support, and verified municipal services.
 
 ## Package Contents
 
 ### 📋 1. Product Requirements Document (PRD)
-**File**: <filepath>01_PRD_SOUAI.md</filepath>
+**File**: <filepath>01_PRD_SUOAI.md</filepath>
 
-Defines the core product vision, target personas, user journeys, and success metrics. Establishes SOUAI's mission to help immigrants integrate faster through language learning, employment preparation, and service discovery.
+Defines the core product vision, target personas, user journeys, and success metrics. Establishes SUOAI's mission to help immigrants integrate faster through language learning, employment preparation, and service discovery.
 
 **Key Highlights:**
 - Target: Newly arrived and resident immigrants in Finland
@@ -29,7 +29,7 @@ Comprehensive site structure organized around user goals rather than technical f
 - Multi-language URL structure with fallbacks
 
 ### 🎨 3. Wireframes (Lo-Fi)
-**File**: <filepath>03_Wireframes_SOUAI.md</filepath>
+**File**: <filepath>03_Wireframes_SUOAI.md</filepath>
 
 Detailed wireframes for all critical user interfaces with Finnish labels and English annotations. Covers complete user flows from onboarding through advanced feature usage.
 

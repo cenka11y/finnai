@@ -1,8 +1,8 @@
-# SOUAI - Product Requirements Document
+# SUOAI - Product Requirements Document
 
 ## 1. Executive Summary
 
-**Product Name:** SOUAI  
+**Product Name:** SUOAI  
 **Domain:** souai.fi (placeholder)  
 **Mission:** Accelerate immigrant integration in Finland through personalized AI-powered language learning, career support, and verified municipal services.
 
@@ -51,7 +51,7 @@ Newly arrived and resident immigrants in Finland face significant barriers to in
 ## 5. User Journeys
 
 ### Journey 1: Language Learning (Sari)
-1. **Discover:** Finds SOUAI through social media recommendation
+1. **Discover:** Finds SUOAI through social media recommendation
 2. **Onboard:** Language detection → Finnish assessment → A2 placement
 3. **Learn:** Receives 4-week personalized plan focused on employment vocabulary
 4. **Practice:** Daily 15-min lessons with speaking practice and feedback

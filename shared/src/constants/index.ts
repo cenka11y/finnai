@@ -1,4 +1,4 @@
-// Shared constants for the SOUAI application
+// Shared constants for the SUOAI application
 
 // CEFR Levels
 export const CEFR_LEVELS = {

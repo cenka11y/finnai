@@ -1,4 +1,4 @@
-# SOUAI - Online Eğitim ve Kariyer Platformu
+# SUOAI - Online Eğitim ve Kariyer Platformu
 
 ## 🚀 Hızlı Başlangıç (Docker)
 

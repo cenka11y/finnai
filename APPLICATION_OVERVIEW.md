@@ -1,8 +1,8 @@
-# SOUAI Application Structure Overview
+# SUOAI Application Structure Overview
 
 ## 🏗️ **Project Architecture**
 
-SOUAI is built as a modern, scalable web application with the following structure:
+SUOAI is built as a modern, scalable web application with the following structure:
 
 ```
 souai/
@@ -274,4 +274,4 @@ This application structure provides:
 - `shared/src/constants/index.ts` - Application constants
 - `PROJECT_STRUCTURE.md` - Detailed structure documentation
 
-This structure provides a comprehensive foundation for the SOUAI application, ready for full implementation with all the features specified in the original requirements.
+This structure provides a comprehensive foundation for the SUOAI application, ready for full implementation with all the features specified in the original requirements.

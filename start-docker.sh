@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# SOUAI Backend Docker Başlatma Script'i
+# SUOAI Backend Docker Başlatma Script'i
 
-echo "🚀 SOUAI Backend Docker ile başlatılıyor..."
+echo "🚀 SUOAI Backend Docker ile başlatılıyor..."
 
 # Docker ve Docker Compose kontrol
 if ! command -v docker &> /dev/null; then
@@ -42,7 +42,7 @@ echo "📊 Container durumu:"
 docker-compose ps
 
 echo ""
-echo "✅ SOUAI Backend başarıyla başlatıldı!"
+echo "✅ SUOAI Backend başarıyla başlatıldı!"
 echo "📡 API: http://localhost:3000"
 echo "🗄️ Database: localhost:5432"
 echo ""

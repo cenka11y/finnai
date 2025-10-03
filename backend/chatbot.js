@@ -1,4 +1,4 @@
-// SOUAI Chatbot - Multilingual Finland Immigration Assistant
+// SUOAI Chatbot - Multilingual Finland Immigration Assistant
 // Finlandiya göçmen oryantasyonu için çok dilli asistan
 
 const { detectLanguage, getTranslations } = require('./languages');

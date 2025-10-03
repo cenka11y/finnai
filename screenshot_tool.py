@@ -23,6 +23,6 @@ def take_screenshot(html_file, output_file):
         print(f"Screenshot saved to {output_file}")
 
 if __name__ == "__main__":
-    html_file = "/workspace/SOUAI_Homepage_Enhanced.html"
+    html_file = "/workspace/SUOAI_Homepage_Enhanced.html"
     output_file = "/workspace/souai_enhanced_preview.png"
     take_screenshot(html_file, output_file)
