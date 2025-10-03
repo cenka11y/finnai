@@ -750,7 +750,25 @@ function handleRequest(req, res) {
     return;
   }
 
-  // Serve HTML for all routes (SPA)
+  // Serve special routes
+  if (pathname === '/chatbot' || pathname === '/chatbot.html') {
+    const chatbotPath = path.join(__dirname, 'chatbot.html');
+    if (fs.existsSync(chatbotPath)) {
+      fs.readFile(chatbotPath, 'utf8', (err, content) => {
+        if (err) {
+          res.writeHead(500);
+          res.end('Server Error');
+          return;
+        }
+        res.setHeader('Content-Type', 'text/html');
+        res.writeHead(200);
+        res.end(content);
+      });
+      return;
+    }
+  }
+
+  // Serve HTML for all other routes (SPA)
   if (pathname === '/' || pathname.endsWith('.html') || !path.extname(pathname)) {
     res.setHeader('Content-Type', 'text/html');
     res.writeHead(200);
@@ -795,8 +813,10 @@ server.listen(PORT, () => {
   console.log('  • ✅ Backend API entegrasyonu');
   console.log('  • ✅ SPA routing');
   console.log('  • ✅ Gerçek zamanlı veri');
+  console.log('  • 🤖 AI Chatbot Interface');
   console.log('');
-  console.log('🎯 Test için: http://localhost:3001');
+  console.log('🎯 Ana Sayfa: http://localhost:3001');
+  console.log('🤖 Chatbot: http://localhost:3001/chatbot');
 });
 
 // Graceful shutdown

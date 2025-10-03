@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOUAI Chatbot - Asistanınız</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 800px;
+            height: 90vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .chat-header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .chat-header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 12px 18px;
+            border-radius: 18px;
+            word-wrap: break-word;
+        }
+
+        .message.user .message-content {
+            background: #667eea;
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message.bot .message-content {
+            background: white;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            border-bottom-left-radius: 5px;
+        }
+
+        .suggested-actions {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .action-btn {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .chat-input-container {
+            padding: 20px;
+            border-top: 1px solid #e0e0e0;
+            background: white;
+        }
+
+        .chat-input-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .chat-input:focus {
+            border-color: #667eea;
+        }
+
+        .send-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .send-btn:hover {
+            background: #5a6fd8;
+        }
+
+        .send-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .typing-indicator {
+            display: none;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #667eea;
+            animation: bounce 1.4s infinite;
+        }
+
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+        .connection-status {
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .status-connected {
+            color: #28a745;
+        }
+
+        .status-error {
+            color: #dc3545;
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .quick-btn {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 15px;
+            padding: 8px 15px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quick-btn:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .chat-container {
+                width: 100%;
+                height: 100vh;
+                border-radius: 0;
+            }
+            
+            .message-content {
+                max-width: 85%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>🤖 SOUAI Asistanı</h1>
+            <p>Size Finlandiya yaşamında yardımcı olmak için buradayım!</p>
+            <div class="connection-status" id="connectionStatus">
+                <span class="status-connected">● Bağlı</span>
+            </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-content">
+                    Moi! SOUAI asistanınız burada! 😊<br><br>
+                    Size şu konularda yardımcı olabilirim:
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>📚 Fin dili kursları</li>
+                        <li>📄 CV hazırlama</li>
+                        <li>🏢 Belediye hizmetleri</li>
+                        <li>🇫🇮 Finlandiya yaşam rehberliği</li>
+                    </ul>
+                    <br>
+                    Hangi konuda yardıma ihtiyacınız var?
+                    
+                    <div class="suggested-actions">
+                        <span class="action-btn" onclick="sendQuickMessage('Kurs arıyorum')">📚 Kurs Ara</span>
+                        <span class="action-btn" onclick="sendQuickMessage('CV oluşturmak istiyorum')">📄 CV Yardımı</span>
+                        <span class="action-btn" onclick="sendQuickMessage('Belediye hizmetleri')">🏢 Hizmetler</span>
+                        <span class="action-btn" onclick="sendQuickMessage('Yardım')">❓ Yardım</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="typing-indicator" id="typingIndicator">
+            Asistan yazıyor<span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+
+        <div class="chat-input-container">
+            <div class="quick-actions">
+                <span class="quick-btn" onclick="sendQuickMessage('Moi!')">👋 Selam</span>
+                <span class="quick-btn" onclick="sendQuickMessage('Seviye testi')">📊 Seviye Testi</span>
+                <span class="quick-btn" onclick="sendQuickMessage('Kela nerede?')">📍 Kela</span>
+                <span class="quick-btn" onclick="sendQuickMessage('İş başvurusu')">💼 İş</span>
+            </div>
+            
+            <form class="chat-input-form" id="chatForm">
+                <input 
+                    type="text" 
+                    class="chat-input" 
+                    id="chatInput" 
+                    placeholder="Mesajınızı yazın..."
+                    maxlength="500"
+                    autocomplete="off"
+                >
+                <button type="submit" class="send-btn" id="sendBtn">
+                    📤
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        class SOUAIChatbot {
+            constructor() {
+                this.apiUrl = 'http://localhost:3000/api/chatbot';
+                this.sessionId = this.generateSessionId();
+                this.authToken = localStorage.getItem('souai_token') || null;
+                this.isTyping = false;
+                
+                this.chatMessages = document.getElementById('chatMessages');
+                this.chatInput = document.getElementById('chatInput');
+                this.sendBtn = document.getElementById('sendBtn');
+                this.typingIndicator = document.getElementById('typingIndicator');
+                this.connectionStatus = document.getElementById('connectionStatus');
+                
+                this.initializeEventListeners();
+                this.checkConnection();
+            }
+
+            generateSessionId() {
+                return 'session_' + Math.random().toString(36).substring(2, 15);
+            }
+
+            initializeEventListeners() {
+                document.getElementById('chatForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.sendMessage();
+                });
+
+                this.chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        this.sendMessage();
+                    }
+                });
+
+                // Auto-resize chat messages
+                this.chatInput.addEventListener('input', () => {
+                    this.scrollToBottom();
+                });
+            }
+
+            async checkConnection() {
+                try {
+                    const response = await fetch(`${this.apiUrl}/status`);
+                    if (response.ok) {
+                        this.updateConnectionStatus(true);
+                    } else {
+                        this.updateConnectionStatus(false);
+                    }
+                } catch (error) {
+                    this.updateConnectionStatus(false);
+                }
+            }
+
+            updateConnectionStatus(isConnected) {
+                const status = this.connectionStatus;
+                if (isConnected) {
+                    status.innerHTML = '<span class="status-connected">● Bağlı</span>';
+                } else {
+                    status.innerHTML = '<span class="status-error">● Bağlantı Hatası</span>';
+                }
+            }
+
+            async sendMessage(messageText = null) {
+                const message = messageText || this.chatInput.value.trim();
+                if (!message || this.isTyping) return;
+
+                // Add user message to chat
+                this.addMessage(message, 'user');
+                this.chatInput.value = '';
+                this.showTyping();
+
+                try {
+                    const headers = {
+                        'Content-Type': 'application/json'
+                    };
+
+                    if (this.authToken) {
+                        headers['Authorization'] = `Bearer ${this.authToken}`;
+                    }
+
+                    const response = await fetch(`${this.apiUrl}/message`, {
+                        method: 'POST',
+                        headers: headers,
+                        body: JSON.stringify({
+                            message: message,
+                            sessionId: this.sessionId
+                        })
+                    });
+
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        this.hideTyping();
+                        this.addBotMessage(data);
+                        this.updateConnectionStatus(true);
+                    } else {
+                        throw new Error(data.error || 'Bilinmeyen hata');
+                    }
+
+                } catch (error) {
+                    this.hideTyping();
+                    this.addMessage('Özür dilerim, şu anda bir teknik sorun yaşıyorum. Lütfen daha sonra tekrar deneyin. 😔', 'bot');
+                    this.updateConnectionStatus(false);
+                    console.error('Chat error:', error);
+                }
+            }
+
+            addMessage(message, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}`;
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'message-content';
+                contentDiv.innerHTML = message.replace(/\n/g, '<br>');
+                
+                messageDiv.appendChild(contentDiv);
+                this.chatMessages.appendChild(messageDiv);
+                this.scrollToBottom();
+            }
+
+            addBotMessage(data) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message bot';
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'message-content';
+                contentDiv.innerHTML = data.response.replace(/\n/g, '<br>');
+
+                // Add suggested actions if available
+                if (data.suggestedActions && data.suggestedActions.length > 0) {
+                    const actionsDiv = document.createElement('div');
+                    actionsDiv.className = 'suggested-actions';
+                    
+                    data.suggestedActions.forEach(action => {
+                        const actionBtn = document.createElement('span');
+                        actionBtn.className = 'action-btn';
+                        actionBtn.textContent = action.text;
+                        actionBtn.onclick = () => this.handleAction(action);
+                        actionsDiv.appendChild(actionBtn);
+                    });
+                    
+                    contentDiv.appendChild(actionsDiv);
+                }
+
+                messageDiv.appendChild(contentDiv);
+                this.chatMessages.appendChild(messageDiv);
+                this.scrollToBottom();
+            }
+
+            handleAction(action) {
+                switch(action.action) {
+                    case 'view_courses':
+                        this.sendMessage('Mevcut kursları göster');
+                        break;
+                    case 'take_assessment':
+                        this.sendMessage('Seviye testi nasıl yapılır?');
+                        break;
+                    case 'create_cv':
+                        this.sendMessage('CV nasıl oluştururum?');
+                        break;
+                    case 'view_services':
+                        this.sendMessage('Belediye hizmetleri neler?');
+                        break;
+                    case 'view_faq':
+                        this.sendMessage('Sık sorulan sorular');
+                        break;
+                    default:
+                        this.sendMessage(action.text);
+                }
+            }
+
+            showTyping() {
+                this.isTyping = true;
+                this.typingIndicator.style.display = 'flex';
+                this.sendBtn.disabled = true;
+                this.scrollToBottom();
+            }
+
+            hideTyping() {
+                this.isTyping = false;
+                this.typingIndicator.style.display = 'none';
+                this.sendBtn.disabled = false;
+            }
+
+            scrollToBottom() {
+                setTimeout(() => {
+                    this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+                }, 100);
+            }
+        }
+
+        // Quick message function for buttons
+        function sendQuickMessage(message) {
+            chatbot.sendMessage(message);
+        }
+
+        // Initialize chatbot when page loads
+        let chatbot;
+        document.addEventListener('DOMContentLoaded', () => {
+            chatbot = new SOUAIChatbot();
+        });
+    </script>
+</body>
+</html>

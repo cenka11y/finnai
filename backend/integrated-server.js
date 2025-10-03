@@ -6,6 +6,7 @@ const url = require('url');
 const crypto = require('crypto');
 const bcrypt = require('crypto').createHash; // Basit hash için
 const { User, Course, Service, Session } = require('./database');
+const { processChatMessage, searchFAQ, FAQ_DATA } = require('./chatbot');
 
 const PORT = process.env.PORT || 3000;
 
@@ -105,14 +106,16 @@ async function handleRequest(req, res) {
                     'User Management ✅',
                     'Course System ✅',
                     'CV Builder (Coming Soon)',
-                    'Municipal Services ✅'
+                    'Municipal Services ✅',
+                    'AI Chatbot ✅'
                 ],
                 endpoints: {
                     auth: ['/api/auth/register', '/api/auth/login', '/api/auth/logout'],
                     users: ['/api/users/profile', '/api/users/upload-avatar'],
                     courses: ['/api/courses', '/api/courses/:id', '/api/courses/:id/enroll'],
                     cv: ['/api/cv', '/api/cv/:id', '/api/cv/:id/generate-pdf'],
-                    services: ['/api/services', '/api/services/:id']
+                    services: ['/api/services', '/api/services/:id'],
+                    chatbot: ['/api/chatbot/message', '/api/chatbot/faq', '/api/chatbot/actions']
                 }
             }));
             return;
@@ -142,12 +145,18 @@ async function handleRequest(req, res) {
             return;
         }
 
+        // Chatbot endpoints
+        if (path === '/api/chatbot' || path.startsWith('/api/chatbot/')) {
+            await handleChatbotAPI(req, res, path, method);
+            return;
+        }
+
         // 404 for unknown routes
         res.writeHead(404);
         res.end(JSON.stringify({
             error: 'Route bulunamadı',
             path: path,
-            available_endpoints: ['/health', '/api/status', '/api/auth/*', '/api/users/*', '/api/courses/*', '/api/services/*']
+            available_endpoints: ['/health', '/api/status', '/api/auth/*', '/api/users/*', '/api/courses/*', '/api/services/*', '/api/chatbot/*']
         }));
 
     } catch (error) {
@@ -400,6 +409,106 @@ async function handleServicesAPI(req, res, path, method) {
     }));
 }
 
+// Chatbot API Handler
+async function handleChatbotAPI(req, res, path, method) {
+    if (path === '/api/chatbot/message' && method === 'POST') {
+        const body = await parseBody(req);
+        const { message, sessionId } = body;
+
+        if (!message || !message.trim()) {
+            res.writeHead(400);
+            res.end(JSON.stringify({ error: 'Mesaj boş olamaz' }));
+            return;
+        }
+
+        // Authorization kontrolü (opsiyonel - giriş yapmamış kullanıcılar da chatbot kullanabilir)
+        let userId = null;
+        const authHeader = req.headers.authorization;
+        if (authHeader && authHeader.startsWith('Bearer ')) {
+            const token = authHeader.substring(7);
+            const tokenData = verifyToken(token);
+            if (tokenData) {
+                userId = tokenData.userId;
+            }
+        }
+
+        const chatResponse = await processChatMessage(message, userId, sessionId);
+
+        res.writeHead(200);
+        res.end(JSON.stringify(chatResponse));
+        return;
+    }
+
+    if (path === '/api/chatbot/faq' && method === 'GET') {
+        res.writeHead(200);
+        res.end(JSON.stringify({
+            success: true,
+            faqs: FAQ_DATA,
+            totalCount: FAQ_DATA.length
+        }));
+        return;
+    }
+
+    if (path === '/api/chatbot/search' && method === 'GET') {
+        const query = url.parse(req.url, true).query;
+        const searchQuery = query.q || '';
+        
+        if (!searchQuery.trim()) {
+            res.writeHead(400);
+            res.end(JSON.stringify({ error: 'Arama sorgusu gerekli (q parameter)' }));
+            return;
+        }
+
+        const results = searchFAQ(searchQuery);
+        
+        res.writeHead(200);
+        res.end(JSON.stringify({
+            success: true,
+            query: searchQuery,
+            results: results,
+            count: results.length
+        }));
+        return;
+    }
+
+    if (path === '/api/chatbot/status' && method === 'GET') {
+        res.writeHead(200);
+        res.end(JSON.stringify({
+            success: true,
+            chatbot: 'active',
+            features: [
+                'Intent Recognition',
+                'Personalized Responses',
+                'FAQ Search',
+                'Course Recommendations',
+                'Service Information'
+            ],
+            supportedLanguages: ['fi', 'en', 'tr'],
+            availableIntents: [
+                'GREETING',
+                'COURSE_INQUIRY', 
+                'CV_HELP',
+                'MUNICIPAL_SERVICES',
+                'LANGUAGE_LEVEL',
+                'HELP',
+                'LIFE_IN_FINLAND'
+            ]
+        }));
+        return;
+    }
+
+    res.writeHead(404);
+    res.end(JSON.stringify({
+        error: 'Chatbot endpoint bulunamadı',
+        available: [
+            'POST /api/chatbot/message',
+            'GET /api/chatbot/faq',
+            'GET /api/chatbot/search?q=query',
+            'GET /api/chatbot/status'
+        ]
+    }));
+}
+
 // Server'ı başlat
 const server = http.createServer(handleRequest);
 
@@ -421,6 +530,9 @@ server.listen(PORT, () => {
     console.log('  📚 POST /api/courses/:id/enroll (Auth required)');
     console.log('  🏢 GET  /api/services');
     console.log('  🏢 GET  /api/services/:id');
+    console.log('  🤖 POST /api/chatbot/message');
+    console.log('  🤖 GET  /api/chatbot/faq');
+    console.log('  🤖 GET  /api/chatbot/status');
     console.log('');
     console.log('🗄️  Database: SQLite (dev.db)');
     console.log('💡 Test için: curl http://localhost:3000/health');
