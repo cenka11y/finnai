@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOUAI - AI-Powered Orientation Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">S</span>
+                        </div>
+                    </div>
+                    <div class="ml-3">
+                        <span class="text-xl font-bold text-gray-900">SOUAI</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Opi Suomea</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">CV Builder</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Palvelut</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Työelämä</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select class="text-sm border-gray-300 rounded-md">
+                        <option>🇫🇮 Suomi</option>
+                        <option>🇬🇧 English</option>
+                        <option>🇹🇷 Türkçe</option>
+                    </select>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                        Kirjaudu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                Tervetuloa Suomeen!
+            </h1>
+            <p class="text-xl md:text-2xl text-blue-100 mb-4">
+                AI-Powered Orientation Platform for Immigrants
+            </p>
+            <p class="text-lg text-blue-200 mb-8 max-w-3xl mx-auto">
+                Opi suomen kieltä, rakenna CV:si ja löydä kuntapalvelut henkilökohtaisen AI-ohjauksen avulla. 
+                Suunnittu erityisesti Suomeen muuttaneille.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold">
+                    🚀 Aloita matka
+                </button>
+                <button class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold">
+                    📖 Lue lisää
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Kaikki tarvitsemasi yhdessä paikassa
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Personoitu oppimiskokemus, joka sopeutuu sinun tarpeisiisi
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Language Learning -->
+                <div class="feature-card bg-blue-50 p-6 rounded-xl border border-blue-200">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">🗣️</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Suomen Kielen Opetus</h3>
+                    <p class="text-gray-600 mb-4">CEFR-tason arviointi ja henkilökohtaiset kurssit A1-C2 tasoille</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>✓ Puheen tunnistus ja ääntäminen</li>
+                        <li>✓ Interaktiiviset harjoitukset</li>
+                        <li>✓ Edistymisen seuranta</li>
+                    </ul>
+                </div>
+
+                <!-- CV Builder -->
+                <div class="feature-card bg-green-50 p-6 rounded-xl border border-green-200">
+                    <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">📄</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">CV Builder</h3>
+                    <p class="text-gray-600 mb-4">ATS-yhteensopivat CV:t suomalaisille työmarkkinoille</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>✓ Suomi & Englanti versiot</li>
+                        <li>✓ PDF & DOCX export</li>
+                        <li>✓ LinkedIn optimointi</li>
+                    </ul>
+                </div>
+
+                <!-- Municipal Services -->
+                <div class="feature-card bg-purple-50 p-6 rounded-xl border border-purple-200">
+                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">🏛️</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Kuntapalvelut</h3>
+                    <p class="text-gray-600 mb-4">Löydä kaikki tarvitsemasi palvelut kaupunkikohtaisesti</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>✓ InfoFinland integraatio</li>
+                        <li>✓ Hakukelpoisuus tarkistus</li>
+                        <li>✓ Reaaliaikainen tieto</li>
+                    </ul>
+                </div>
+
+                <!-- Job Readiness -->
+                <div class="feature-card bg-orange-50 p-6 rounded-xl border border-orange-200">
+                    <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">💼</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Työelämävalmius</h3>
+                    <p class="text-gray-600 mb-4">Valmistaudu suomalaisiin työhaastatteluihin ja työkulttuuriin</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>✓ Haastatteluharjoitukset</li>
+                        <li>✓ Työkulttuurin opetus</li>
+                        <li>✓ Verkostoitumisvinkit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Kuinka se toimii?
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Kolme yksinkertaista askelta parempaan tulevaisuuteen
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-white">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Arvioi taitosi</h3>
+                    <p class="text-gray-600">Aloita CEFR-kielitasotestillä. AI analysoi osaamisesi ja luo henkilökohtaisen oppimispolun.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-white">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Opi ja kehity</h3>
+                    <p class="text-gray-600">Suorita interaktiivisia oppitunteja, rakenna CV:si ja tutustu palveluihin omaan tahtiisi.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-white">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Saavuta tavoitteesi</h3>
+                    <p class="text-gray-600">Hanki unelmatyösi, integroidu yhteiskuntaan ja rakennu onnistunut elämä Suomessa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Language Support -->
+    <section class="py-16 bg-white border-t">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-8">Tuettavat kielet</h3>
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="flex items-center space-x-2 bg-gray-50 px-4 py-2 rounded-lg">
+                    <span class="text-2xl">🇫🇮</span>
+                    <span class="font-medium">Suomi</span>
+                </div>
+                <div class="flex items-center space-x-2 bg-gray-50 px-4 py-2 rounded-lg">
+                    <span class="text-2xl">🇬🇧</span>
+                    <span class="font-medium">English</span>
+                </div>
+                <div class="flex items-center space-x-2 bg-gray-50 px-4 py-2 rounded-lg">
+                    <span class="text-2xl">🇹🇷</span>
+                    <span class="font-medium">Türkçe</span>
+                </div>
+                <div class="flex items-center space-x-2 bg-gray-50 px-4 py-2 rounded-lg">
+                    <span class="text-2xl">🇸🇦</span>
+                    <span class="font-medium">العربية</span>
+                </div>
+                <div class="flex items-center space-x-2 bg-gray-50 px-4 py-2 rounded-lg">
+                    <span class="text-2xl">🇷🇺</span>
+                    <span class="font-medium">Русский</span>
+                </div>
+                <div class="flex items-center space-x-2 bg-gray-50 px-4 py-2 rounded-lg">
+                    <span class="text-2xl">🇸🇴</span>
+                    <span class="font-medium">Soomaali</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-bg py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Valmis aloittamaan matkasi Suomessa?
+            </h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Liity tuhansiin muihin maahanmuuttajiin, jotka ovat jo löytäneet tiensä menestyksekkääseen elämään Suomessa.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold">
+                    🚀 Aloita ilmaiseksi
+                </button>
+                <button class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold">
+                    📞 Ota yhteyttä
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">S</span>
+                        </div>
+                        <span class="ml-3 text-xl font-bold">SOUAI</span>
+                    </div>
+                    <p class="text-gray-400">
+                        AI-powered platform helping immigrants succeed in Finland through personalized language learning and career guidance.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Palvelut</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Suomen kielen opetus</a></li>
+                        <li><a href="#" class="hover:text-white">CV Builder</a></li>
+                        <li><a href="#" class="hover:text-white">Kuntapalvelut</a></li>
+                        <li><a href="#" class="hover:text-white">Työelämävalmius</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Tuki</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Ohje</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white">Yhteystiedot</a></li>
+                        <li><a href="#" class="hover:text-white">Palaute</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Laillinen</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Tietosuoja</a></li>
+                        <li><a href="#" class="hover:text-white">Käyttöehdot</a></li>
+                        <li><a href="#" class="hover:text-white">GDPR</a></li>
+                        <li><a href="#" class="hover:text-white">Evästeet</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 SOUAI. Kaikki oikeudet pidätetään.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
