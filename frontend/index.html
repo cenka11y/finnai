@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOUAI - Finland Immigration & Integration Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --electric-purple: #9333ea;
+            --electric-purple-dark: #7c3aed;
+            --electric-purple-light: #a855f7;
+            --teal: #14b8a6;
+            --teal-dark: #0d9488;
+            --teal-light: #2dd4bf;
+            --coral: #ff6b6b;
+            --coral-dark: #ff5252;
+            --coral-light: #ff8a80;
+            --dark-bg: #0a0a0a;
+            --dark-secondary: #1a1a1a;
+            --dark-tertiary: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --gradient-primary: linear-gradient(135deg, var(--electric-purple) 0%, var(--teal) 50%, var(--coral) 100%);
+            --gradient-card: linear-gradient(135deg, rgba(147, 51, 234, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 70%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(255, 107, 107, 0.06) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-20px, -30px) rotate(2deg); }
+            50% { transform: translate(20px, -20px) rotate(-2deg); }
+            75% { transform: translate(-10px, 30px) rotate(1deg); }
+        }
+
+        /* Geometric Shapes */
+        .geometric-shape {
+            position: absolute;
+            z-index: -1;
+        }
+
+        .shape-1 {
+            top: 10%;
+            right: 10%;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, var(--electric-purple), transparent);
+            border-radius: 50% 0;
+            animation: rotate 15s linear infinite;
+        }
+
+        .shape-2 {
+            bottom: 20%;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--teal), transparent);
+            transform: rotate(45deg);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .shape-3 {
+            top: 50%;
+            right: 5%;
+            width: 60px;
+            height: 60px;
+            background: var(--coral);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: morph 12s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: rotate(45deg) scale(1); opacity: 0.6; }
+            50% { transform: rotate(45deg) scale(1.2); opacity: 0.8; }
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%; }
+            75% { border-radius: 70% 30% 40% 60% / 70% 40% 60% 30%; }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.9);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .language-toggle {
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn {
+            padding: 8px 15px;
+            border: none;
+            background: transparent;
+            color: var(--text-primary);
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: var(--electric-purple);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-card);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            border-radius: 25px;
+            padding: 12px 24px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 10px 30px rgba(147, 51, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(147, 51, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: var(--gradient-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--electric-purple);
+            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            color: var(--text-secondary);
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: bold;
+        }
+
+        .service-stats {
+            display: none;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card:hover .service-stats {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Chat Section */
+        .chat-preview {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--dark-secondary) 0%, var(--dark-tertiary) 100%);
+            position: relative;
+        }
+
+        .chat-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .chat-info h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .chat-info p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .chat-mockup {
+            background: var(--dark-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-header {
+            background: var(--gradient-primary);
+            padding: 20px;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .chat-messages {
+            padding: 30px;
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .message-content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 20px;
+            border-bottom-left-radius: 5px;
+            max-width: 80%;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--electric-purple);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .chat-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .chat-info {
+                text-align: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-container,
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                min-width: unset;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax Effect */
+        .parallax {
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    
+    <!-- Geometric Shapes -->
+    <div class="geometric-shape shape-1"></div>
+    <div class="geometric-shape shape-2"></div>
+    <div class="geometric-shape shape-3"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">SOUAI</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#chat">AI Assistant</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <div class="language-toggle">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fi">FI</button>
+                <button class="lang-btn" data-lang="tr">TR</button>
+                <button class="lang-btn" data-lang="ar">AR</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-badge fade-in">
+                🇫🇮 Official Finland Immigration Platform
+            </div>
+            <h1 class="hero-title fade-in">
+                Welcome to Your New Life in 
+                <span style="background: linear-gradient(45deg, var(--teal), var(--coral)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Finland</span>
+            </h1>
+            <p class="hero-subtitle fade-in">
+                Comprehensive multilingual platform designed to help immigrants seamlessly integrate into Finnish society. 
+                From language learning to essential services - your journey starts here.
+            </p>
+            <div class="hero-cta fade-in">
+                <a href="/chatbot" class="btn btn-primary">🤖 Start AI Assistant</a>
+                <a href="#services" class="btn btn-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">Integration Services</h2>
+                <p class="section-subtitle fade-in">
+                    Everything you need to start your new life in Finland, designed with immigrants in mind.
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🎓</div>
+                    <h3 class="service-title">Finnish Language Courses</h3>
+                    <p class="service-description">
+                        Comprehensive CEFR-standard courses from A1 to C2 level, designed specifically for integration into Finnish society.
+                    </p>
+                    <ul class="service-features">
+                        <li>Free integration courses for EU/EEA citizens</li>
+                        <li>Interactive online learning platform</li>
+                        <li>Cultural context integrated learning</li>
+                        <li>Official YKI test preparation</li>
+                    </ul>
+                    <div class="service-stats">
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <div class="stat-number">15,000+</div>
+                                <div class="stat-label">Students</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">95%</div>
+                                <div class="stat-label">Success Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏛️</div>
+                    <h3 class="service-title">Public Services Navigation</h3>
+                    <p class="service-description">
+                        Complete guide to essential Finnish public services including Kela, TE office, Maistraatti, and tax administration.
+                    </p>
+                    <ul class="service-features">
+                        <li>Step-by-step service guidance</li>
+                        <li>Required documents checklist</li>
+                        <li>Appointment booking assistance</li>
+                        <li>Multilingual support materials</li>
+                    </ul>
+                    <div class="service-stats">
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Services</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Available</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">💼</div>
+                    <h3 class="service-title">Employment Support</h3>
+                    <p class="service-description">
+                        Professional career guidance including CV building, job search strategies, and understanding Finnish work culture.
+                    </p>
+                    <ul class="service-features">
+                        <li>Finnish-style CV templates</li>
+                        <li>Job market insights</li>
+                        <li>Interview preparation</li>
+                        <li>Networking opportunities</li>
+                    </ul>
+                    <div class="service-stats">
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <div class="stat-number">85%</div>
+                                <div class="stat-label">Employment Rate</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">3,000+</div>
+                                <div class="stat-label">Jobs Placed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏠</div>
+                    <h3 class="service-title">Housing & Daily Life</h3>
+                    <p class="service-description">
+                        Practical guidance for finding accommodation, understanding Finnish culture, and navigating daily life essentials.
+                    </p>
+                    <ul class="service-features">
+                        <li>Housing search assistance</li>
+                        <li>Banking and finance guidance</li>
+                        <li>Healthcare system navigation</li>
+                        <li>Cultural integration tips</li>
+                    </ul>
+                    <div class="service-stats">
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <div class="stat-number">10,000+</div>
+                                <div class="stat-label">Families Helped</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.9/5</div>
+                                <div class="stat-label">Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Preview Section -->
+    <section class="chat-preview" id="chat">
+        <div class="section-container">
+            <div class="chat-container">
+                <div class="chat-info">
+                    <h2 class="fade-in">AI-Powered Integration Assistant</h2>
+                    <p class="fade-in">
+                        Our multilingual AI assistant provides 24/7 support in Finnish, English, Turkish, and Arabic. 
+                        Get instant answers about courses, services, and daily life in Finland.
+                    </p>
+                    <a href="/chatbot" class="btn btn-primary fade-in">Try the Assistant</a>
+                </div>
+                <div class="chat-mockup fade-in">
+                    <div class="chat-header">
+                        SOUAI AI Assistant - Multilingual Support
+                    </div>
+                    <div class="chat-messages">
+                        <div class="chat-message">
+                            <div class="message-avatar">🤖</div>
+                            <div class="message-content">
+                                Hei! I'm here to help you with your life in Finland. I can assist in Finnish, English, Turkish, and Arabic. What would you like to know?
+                            </div>
+                        </div>
+                        <div class="chat-message">
+                            <div class="message-avatar">👤</div>
+                            <div class="message-content">
+                                I need help with Kela services
+                            </div>
+                        </div>
+                        <div class="chat-message">
+                            <div class="message-avatar">🤖</div>
+                            <div class="message-content">
+                                Kela provides social security benefits including housing allowance, child benefits, and income support. I can guide you through the application process step by step.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SOUAI Platform</h3>
+                    <p>Empowering immigrants with the tools and knowledge needed for successful integration into Finnish society.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#services">Language Courses</a>
+                    <a href="#services">Public Services</a>
+                    <a href="#services">Employment Support</a>
+                    <a href="#services">Housing Assistance</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <a href="/chatbot">AI Assistant</a>
+                    <a href="#about">Help Center</a>
+                    <a href="#about">Contact</a>
+                    <a href="#about">FAQ</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Languages</h3>
+                    <a href="#" data-lang="fi">🇫🇮 Suomi</a>
+                    <a href="#" data-lang="en">🇬🇧 English</a>
+                    <a href="#" data-lang="tr">🇹🇷 Türkçe</a>
+                    <a href="#" data-lang="ar">🇸🇦 العربية</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SOUAI - Finland Immigration Platform. Supporting your journey to integration.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Parallax effect
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const shapes = document.querySelectorAll('.geometric-shape');
+                shapes.forEach((shape, index) => {
+                    const speed = (index + 1) * 0.3;
+                    shape.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Language switching
+            const langButtons = document.querySelectorAll('.lang-btn');
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    langButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Here you could implement actual language switching
+                    const lang = btn.dataset.lang;
+                    console.log(`Switching to language: ${lang}`);
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Service card hover effects
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Dynamic typing effect for hero title
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle) {
+                const text = heroTitle.textContent;
+                heroTitle.textContent = '';
+                let i = 0;
+                
+                const typeWriter = () => {
+                    if (i < text.length) {
+                        heroTitle.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 50);
+                    }
+                };
+                
+                setTimeout(typeWriter, 1000);
+            }
+
+            // Add floating animation to hero elements
+            const heroElements = document.querySelectorAll('.hero-badge, .hero-cta');
+            heroElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.2}s`;
+                element.style.animation = `float 6s ease-in-out infinite`;
+            });
+
+            // Button click effects
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    let ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    this.appendChild(ripple);
+
+                    let x = e.clientX - e.target.offsetLeft;
+                    let y = e.clientY - e.target.offsetTop;
+
+                    ripple.style.left = `${x}px`;
+                    ripple.style.top = `${y}px`;
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+
+        // Add CSS for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            .btn {
+                position: relative;
+                overflow: hidden;
+            }
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                transform: scale(0);
+                animation: ripple-animation 0.6s linear;
+                pointer-events: none;
+            }
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
