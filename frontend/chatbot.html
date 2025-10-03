@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOUAI Chatbot - Asistanınız</title>
+    <title>SOUAI - Finland Immigration Assistant</title>
     <style>
         * {
             margin: 0;
@@ -18,36 +18,59 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            direction: ltr;
         }
 
         .chat-container {
             width: 90%;
             max-width: 800px;
-            height: 90vh;
+            height: 85vh;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
             overflow: hidden;
         }
 
         .chat-header {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .language-selector {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .language-selector select {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .language-selector option {
+            background: #2a5298;
+            color: white;
         }
 
         .chat-header h1 {
             font-size: 24px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .chat-header p {
-            opacity: 0.9;
             font-size: 14px;
+            opacity: 0.9;
         }
 
         .chat-messages {
@@ -58,14 +81,9 @@
         }
 
         .message {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: flex;
-            animation: fadeIn 0.3s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            align-items: flex-start;
         }
 
         .message.user {
@@ -78,13 +96,16 @@
 
         .message-content {
             max-width: 70%;
-            padding: 12px 18px;
-            border-radius: 18px;
+            padding: 15px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+            position: relative;
             word-wrap: break-word;
         }
 
         .message.user .message-content {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border-bottom-right-radius: 5px;
         }
@@ -92,248 +113,286 @@
         .message.bot .message-content {
             background: white;
             color: #333;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #e9ecef;
             border-bottom-left-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-time {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 5px;
         }
 
         .suggested-actions {
-            margin-top: 10px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            margin-top: 15px;
         }
 
-        .action-btn {
-            background: #f0f0f0;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            padding: 6px 12px;
+        .action-button {
+            background: #f0f2f5;
+            border: 1px solid #d0d7de;
+            border-radius: 15px;
+            padding: 8px 15px;
             font-size: 12px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
+            color: #333;
         }
 
-        .action-btn:hover {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
+        .action-button:hover {
+            background: #e1e4e8;
+            transform: translateY(-1px);
         }
 
         .chat-input-container {
             padding: 20px;
-            border-top: 1px solid #e0e0e0;
             background: white;
+            border-top: 1px solid #e9ecef;
         }
 
-        .chat-input-form {
+        .chat-input-wrapper {
             display: flex;
-            gap: 10px;
+            align-items: center;
+            gap: 15px;
         }
 
         .chat-input {
             flex: 1;
             padding: 15px 20px;
-            border: 2px solid #e0e0e0;
+            border: 1px solid #d0d7de;
             border-radius: 25px;
-            font-size: 16px;
+            font-size: 14px;
             outline: none;
-            transition: border-color 0.2s;
+            transition: border-color 0.3s ease;
         }
 
         .chat-input:focus {
             border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
-        .send-btn {
-            background: #667eea;
+        .send-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
             border-radius: 50%;
             width: 50px;
             height: 50px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
+            transition: transform 0.2s ease;
+            font-size: 16px;
         }
 
-        .send-btn:hover {
-            background: #5a6fd8;
+        .send-button:hover {
+            transform: scale(1.05);
         }
 
-        .send-btn:disabled {
-            background: #ccc;
+        .send-button:disabled {
+            opacity: 0.5;
             cursor: not-allowed;
+            transform: none;
         }
 
         .typing-indicator {
             display: none;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
             color: #666;
             font-style: italic;
-            margin-bottom: 15px;
+            margin: 10px 0;
         }
 
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #667eea;
-            animation: bounce 1.4s infinite;
-        }
-
-        .dot:nth-child(2) { animation-delay: 0.2s; }
-        .dot:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes bounce {
-            0%, 60%, 100% { transform: translateY(0); }
-            30% { transform: translateY(-10px); }
-        }
-
-        .connection-status {
-            text-align: center;
-            padding: 10px;
-            font-size: 12px;
-            color: #666;
-        }
-
-        .status-connected {
-            color: #28a745;
-        }
-
-        .status-error {
-            color: #dc3545;
-        }
-
-        .quick-actions {
+        .typing-dots {
             display: flex;
-            gap: 10px;
+            gap: 4px;
+        }
+
+        .typing-dots span {
+            width: 6px;
+            height: 6px;
+            background: #666;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        .faq-results {
+            background: #f8f9ff;
+            border: 1px solid #e1e8ff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .faq-item {
             margin-bottom: 10px;
-            flex-wrap: wrap;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #667eea;
         }
 
-        .quick-btn {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 15px;
-            padding: 8px 15px;
+        .faq-question {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .faq-answer {
+            color: #666;
             font-size: 13px;
-            cursor: pointer;
-            transition: all 0.2s;
         }
 
-        .quick-btn:hover {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
+        .error-message {
+            background: #ffe6e6;
+            border: 1px solid #ff9999;
+            color: #cc0000;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
         }
 
-        /* Mobile responsiveness */
+        /* Responsive design */
         @media (max-width: 768px) {
             .chat-container {
-                width: 100%;
-                height: 100vh;
-                border-radius: 0;
+                width: 95%;
+                height: 95vh;
+                border-radius: 10px;
             }
-            
+
+            .language-selector {
+                position: static;
+                margin-bottom: 10px;
+            }
+
+            .chat-header {
+                padding: 15px;
+            }
+
+            .chat-header h1 {
+                font-size: 20px;
+            }
+
             .message-content {
                 max-width: 85%;
             }
+
+            .chat-input-wrapper {
+                gap: 10px;
+            }
+        }
+
+        /* RTL Support for Arabic */
+        .rtl {
+            direction: rtl;
+        }
+
+        .rtl .message.user {
+            justify-content: flex-start;
+        }
+
+        .rtl .message.bot {
+            justify-content: flex-end;
+        }
+
+        .rtl .message.user .message-content {
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 5px;
+        }
+
+        .rtl .message.bot .message-content {
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 5px;
         }
     </style>
 </head>
 <body>
     <div class="chat-container">
         <div class="chat-header">
-            <h1>🤖 SOUAI Asistanı</h1>
-            <p>Size Finlandiya yaşamında yardımcı olmak için buradayım!</p>
-            <div class="connection-status" id="connectionStatus">
-                <span class="status-connected">● Bağlı</span>
+            <div class="language-selector">
+                <select id="languageSelector">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="fi">🇫🇮 Suomi</option>
+                    <option value="tr">🇹🇷 Türkçe</option>
+                    <option value="ar">🇸🇦 العربية</option>
+                </select>
             </div>
+            <h1 id="headerTitle">SOUAI - Finland Immigration Assistant</h1>
+            <p id="headerSubtitle">Your multilingual guide to life in Finland</p>
         </div>
 
         <div class="chat-messages" id="chatMessages">
             <div class="message bot">
-                <div class="message-content">
-                    Moi! SOUAI asistanınız burada! 😊<br><br>
-                    Size şu konularda yardımcı olabilirim:
-                    <ul style="margin-top: 10px; padding-left: 20px;">
-                        <li>📚 Fin dili kursları</li>
-                        <li>📄 CV hazırlama</li>
-                        <li>🏢 Belediye hizmetleri</li>
-                        <li>🇫🇮 Finlandiya yaşam rehberliği</li>
-                    </ul>
-                    <br>
-                    Hangi konuda yardıma ihtiyacınız var?
-                    
-                    <div class="suggested-actions">
-                        <span class="action-btn" onclick="sendQuickMessage('Kurs arıyorum')">📚 Kurs Ara</span>
-                        <span class="action-btn" onclick="sendQuickMessage('CV oluşturmak istiyorum')">📄 CV Yardımı</span>
-                        <span class="action-btn" onclick="sendQuickMessage('Belediye hizmetleri')">🏢 Hizmetler</span>
-                        <span class="action-btn" onclick="sendQuickMessage('Yardım')">❓ Yardım</span>
-                    </div>
+                <div class="message-content" id="welcomeMessage">
+                    Welcome to SOUAI! 🇫🇮<br>
+                    I'm here to help you navigate life in Finland. I can assist you with:<br>
+                    • Finnish language courses and integration training<br>
+                    • Public services (Kela, TE office, Maistraatti)<br>
+                    • Housing and daily life guidance<br>
+                    • Work and CV assistance<br><br>
+                    <strong>Select your preferred language above and ask me anything!</strong>
                 </div>
             </div>
         </div>
 
         <div class="typing-indicator" id="typingIndicator">
-            Asistan yazıyor<span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span>Assistant is typing</span>
+            <div class="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
 
         <div class="chat-input-container">
-            <div class="quick-actions">
-                <span class="quick-btn" onclick="sendQuickMessage('Moi!')">👋 Selam</span>
-                <span class="quick-btn" onclick="sendQuickMessage('Seviye testi')">📊 Seviye Testi</span>
-                <span class="quick-btn" onclick="sendQuickMessage('Kela nerede?')">📍 Kela</span>
-                <span class="quick-btn" onclick="sendQuickMessage('İş başvurusu')">💼 İş</span>
-            </div>
-            
-            <form class="chat-input-form" id="chatForm">
+            <div class="chat-input-wrapper">
                 <input 
                     type="text" 
-                    class="chat-input" 
                     id="chatInput" 
-                    placeholder="Mesajınızı yazın..."
+                    class="chat-input" 
+                    placeholder="Type your message here..."
                     maxlength="500"
-                    autocomplete="off"
                 >
-                <button type="submit" class="send-btn" id="sendBtn">
-                    📤
-                </button>
-            </form>
+                <button id="sendButton" class="send-button">📤</button>
+            </div>
         </div>
     </div>
 
     <script>
-        class SOUAIChatbot {
+        class FinlandImmigrationChatbot {
             constructor() {
-                this.apiUrl = 'http://localhost:3000/api/chatbot';
+                this.currentLanguage = 'en';
+                this.apiUrl = 'http://localhost:3000';
                 this.sessionId = this.generateSessionId();
-                this.authToken = localStorage.getItem('souai_token') || null;
-                this.isTyping = false;
-                
+                this.initializeElements();
+                this.setupEventListeners();
+                this.translations = this.getTranslations();
+                this.updateLanguage();
+            }
+
+            initializeElements() {
                 this.chatMessages = document.getElementById('chatMessages');
                 this.chatInput = document.getElementById('chatInput');
-                this.sendBtn = document.getElementById('sendBtn');
+                this.sendButton = document.getElementById('sendButton');
                 this.typingIndicator = document.getElementById('typingIndicator');
-                this.connectionStatus = document.getElementById('connectionStatus');
-                
-                this.initializeEventListeners();
-                this.checkConnection();
+                this.languageSelector = document.getElementById('languageSelector');
+                this.headerTitle = document.getElementById('headerTitle');
+                this.headerSubtitle = document.getElementById('headerSubtitle');
+                this.welcomeMessage = document.getElementById('welcomeMessage');
             }
 
-            generateSessionId() {
-                return 'session_' + Math.random().toString(36).substring(2, 15);
-            }
-
-            initializeEventListeners() {
-                document.getElementById('chatForm').addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.sendMessage();
-                });
-
+            setupEventListeners() {
+                this.sendButton.addEventListener('click', () => this.sendMessage());
                 this.chatInput.addEventListener('keypress', (e) => {
                     if (e.key === 'Enter' && !e.shiftKey) {
                         e.preventDefault();
@@ -341,154 +400,226 @@
                     }
                 });
 
-                // Auto-resize chat messages
+                this.languageSelector.addEventListener('change', (e) => {
+                    this.currentLanguage = e.target.value;
+                    this.updateLanguage();
+                });
+
+                // Auto-resize input
                 this.chatInput.addEventListener('input', () => {
-                    this.scrollToBottom();
+                    const isRTL = this.currentLanguage === 'ar';
+                    document.body.className = isRTL ? 'rtl' : '';
                 });
             }
 
-            async checkConnection() {
-                try {
-                    const response = await fetch(`${this.apiUrl}/status`);
-                    if (response.ok) {
-                        this.updateConnectionStatus(true);
-                    } else {
-                        this.updateConnectionStatus(false);
+            getTranslations() {
+                return {
+                    en: {
+                        headerTitle: 'SOUAI - Finland Immigration Assistant',
+                        headerSubtitle: 'Your multilingual guide to life in Finland',
+                        inputPlaceholder: 'Type your message here...',
+                        typingIndicator: 'Assistant is typing',
+                        welcomeMessage: `Welcome to SOUAI! 🇫🇮<br>
+                            I'm here to help you navigate life in Finland. I can assist you with:<br>
+                            • Finnish language courses and integration training<br>
+                            • Public services (Kela, TE office, Maistraatti)<br>
+                            • Housing and daily life guidance<br>
+                            • Work and CV assistance<br><br>
+                            <strong>Select your preferred language above and ask me anything!</strong>`
+                    },
+                    fi: {
+                        headerTitle: 'SOUAI - Suomen maahanmuuttoavustaja',
+                        headerSubtitle: 'Monikielinen oppaasi elämään Suomessa',
+                        inputPlaceholder: 'Kirjoita viestisi tähän...',
+                        typingIndicator: 'Assistentti kirjoittaa',
+                        welcomeMessage: `Tervetuloa SOUAI:hin! 🇫🇮<br>
+                            Olen täällä auttamassa sinua Suomessa. Voin auttaa sinua:<br>
+                            • Suomen kielen kurssit ja kotoutumiskoulutus<br>
+                            • Julkiset palvelut (Kela, TE-toimisto, Maistraatti)<br>
+                            • Asuminen ja päivittäinen elämä<br>
+                            • Työ ja CV-apu<br><br>
+                            <strong>Valitse kielesi yllä ja kysy mitä tahansa!</strong>`
+                    },
+                    tr: {
+                        headerTitle: 'SOUAI - Finlandiya Göçmen Asistanı',
+                        headerSubtitle: 'Finlandiya\'daki yaşamınız için çok dilli rehberiniz',
+                        inputPlaceholder: 'Mesajınızı buraya yazın...',
+                        typingIndicator: 'Asistan yazıyor',
+                        welcomeMessage: `SOUAI\'ye hoş geldiniz! 🇫🇮<br>
+                            Finlandiya\'daki yaşamınızda size yardımcı olmak için buradayım. Size yardımcı olabileceğim konular:<br>
+                            • Fince dil kursları ve entegrasyon eğitimi<br>
+                            • Kamu hizmetleri (Kela, TE ofisi, Maistraatti)<br>
+                            • Konut ve günlük yaşam rehberliği<br>
+                            • İş ve CV yardımı<br><br>
+                            <strong>Yukarıdan dilinizi seçin ve bana her şeyi sorabilirsiniz!</strong>`
+                    },
+                    ar: {
+                        headerTitle: 'SOUAI - مساعد الهجرة الفنلندي',
+                        headerSubtitle: 'دليلكم متعدد اللغات للحياة في فنلندا',
+                        inputPlaceholder: 'اكتب رسالتك هنا...',
+                        typingIndicator: 'المساعد يكتب',
+                        welcomeMessage: `مرحباً بكم في SOUAI! 🇫🇮<br>
+                            أنا هنا لمساعدتكم في الحياة في فنلندا. يمكنني مساعدتكم في:<br>
+                            • دورات اللغة الفنلندية وتدريب الاندماج<br>
+                            • الخدمات العامة (كيلا، مكتب TE، Maistraatti)<br>
+                            • الإسكان وإرشادات الحياة اليومية<br>
+                            • العمل ومساعدة السيرة الذاتية<br><br>
+                            <strong>اختاروا لغتكم المفضلة أعلاه واسألوني أي شيء!</strong>`
                     }
-                } catch (error) {
-                    this.updateConnectionStatus(false);
-                }
+                };
             }
 
-            updateConnectionStatus(isConnected) {
-                const status = this.connectionStatus;
-                if (isConnected) {
-                    status.innerHTML = '<span class="status-connected">● Bağlı</span>';
-                } else {
-                    status.innerHTML = '<span class="status-error">● Bağlantı Hatası</span>';
+            updateLanguage() {
+                const trans = this.translations[this.currentLanguage];
+                this.headerTitle.textContent = trans.headerTitle;
+                this.headerSubtitle.textContent = trans.headerSubtitle;
+                this.chatInput.placeholder = trans.inputPlaceholder;
+                this.welcomeMessage.innerHTML = trans.welcomeMessage;
+                
+                const typingText = this.typingIndicator.querySelector('span');
+                if (typingText) {
+                    typingText.textContent = trans.typingIndicator;
                 }
+
+                // RTL support
+                const isRTL = this.currentLanguage === 'ar';
+                document.body.className = isRTL ? 'rtl' : '';
+                document.dir = isRTL ? 'rtl' : 'ltr';
             }
 
-            async sendMessage(messageText = null) {
-                const message = messageText || this.chatInput.value.trim();
-                if (!message || this.isTyping) return;
+            generateSessionId() {
+                return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            }
 
-                // Add user message to chat
+            async sendMessage() {
+                const message = this.chatInput.value.trim();
+                if (!message) return;
+
                 this.addMessage(message, 'user');
                 this.chatInput.value = '';
-                this.showTyping();
+                this.sendButton.disabled = true;
+                this.showTypingIndicator();
 
                 try {
-                    const headers = {
-                        'Content-Type': 'application/json'
-                    };
-
-                    if (this.authToken) {
-                        headers['Authorization'] = `Bearer ${this.authToken}`;
-                    }
-
-                    const response = await fetch(`${this.apiUrl}/message`, {
+                    const response = await fetch(`${this.apiUrl}/api/chatbot/message`, {
                         method: 'POST',
-                        headers: headers,
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
                         body: JSON.stringify({
                             message: message,
+                            language: this.currentLanguage,
                             sessionId: this.sessionId
                         })
                     });
 
                     const data = await response.json();
                     
+                    this.hideTypingIndicator();
+                    
                     if (data.success) {
-                        this.hideTyping();
-                        this.addBotMessage(data);
-                        this.updateConnectionStatus(true);
+                        this.addMessage(data.response, 'bot', data.suggestedActions, data.faqResults);
                     } else {
-                        throw new Error(data.error || 'Bilinmeyen hata');
+                        this.addMessage(data.response || 'Sorry, something went wrong.', 'bot', null, null, true);
                     }
-
+                    
                 } catch (error) {
-                    this.hideTyping();
-                    this.addMessage('Özür dilerim, şu anda bir teknik sorun yaşıyorum. Lütfen daha sonra tekrar deneyin. 😔', 'bot');
-                    this.updateConnectionStatus(false);
-                    console.error('Chat error:', error);
+                    console.error('Error:', error);
+                    this.hideTypingIndicator();
+                    
+                    const errorMessage = this.currentLanguage === 'fi' ? 'Pahoittelut, tapahtui virhe.' :
+                                       this.currentLanguage === 'tr' ? 'Özür dilerim, bir hata oluştu.' :
+                                       this.currentLanguage === 'ar' ? 'عذراً، حدث خطأ.' :
+                                       'Sorry, an error occurred.';
+                                       
+                    this.addMessage(errorMessage, 'bot', null, null, true);
                 }
+
+                this.sendButton.disabled = false;
             }
 
-            addMessage(message, sender) {
+            addMessage(content, sender, suggestedActions = null, faqResults = null, isError = false) {
                 const messageDiv = document.createElement('div');
                 messageDiv.className = `message ${sender}`;
                 
-                const contentDiv = document.createElement('div');
-                contentDiv.className = 'message-content';
-                contentDiv.innerHTML = message.replace(/\n/g, '<br>');
-                
-                messageDiv.appendChild(contentDiv);
-                this.chatMessages.appendChild(messageDiv);
-                this.scrollToBottom();
-            }
+                let messageHTML = `
+                    <div class="message-content ${isError ? 'error-message' : ''}">
+                        ${content}
+                        <div class="message-time">${new Date().toLocaleTimeString()}</div>
+                `;
 
-            addBotMessage(data) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = 'message bot';
-                
-                const contentDiv = document.createElement('div');
-                contentDiv.className = 'message-content';
-                contentDiv.innerHTML = data.response.replace(/\n/g, '<br>');
-
-                // Add suggested actions if available
-                if (data.suggestedActions && data.suggestedActions.length > 0) {
-                    const actionsDiv = document.createElement('div');
-                    actionsDiv.className = 'suggested-actions';
-                    
-                    data.suggestedActions.forEach(action => {
-                        const actionBtn = document.createElement('span');
-                        actionBtn.className = 'action-btn';
-                        actionBtn.textContent = action.text;
-                        actionBtn.onclick = () => this.handleAction(action);
-                        actionsDiv.appendChild(actionBtn);
+                if (suggestedActions && suggestedActions.length > 0) {
+                    messageHTML += '<div class="suggested-actions">';
+                    suggestedActions.forEach(action => {
+                        messageHTML += `<button class="action-button" onclick="chatbot.handleActionClick('${action.action}')">${action.text}</button>`;
                     });
-                    
-                    contentDiv.appendChild(actionsDiv);
+                    messageHTML += '</div>';
                 }
 
-                messageDiv.appendChild(contentDiv);
+                if (faqResults && faqResults.length > 0) {
+                    messageHTML += '<div class="faq-results">';
+                    messageHTML += '<strong>Related Information:</strong>';
+                    faqResults.forEach(faq => {
+                        messageHTML += `
+                            <div class="faq-item">
+                                <div class="faq-question">${faq.question}</div>
+                                <div class="faq-answer">${faq.answer}</div>
+                            </div>
+                        `;
+                    });
+                    messageHTML += '</div>';
+                }
+
+                messageHTML += '</div>';
+                messageDiv.innerHTML = messageHTML;
+                
                 this.chatMessages.appendChild(messageDiv);
                 this.scrollToBottom();
             }
 
-            handleAction(action) {
-                switch(action.action) {
-                    case 'view_courses':
-                        this.sendMessage('Mevcut kursları göster');
-                        break;
-                    case 'take_assessment':
-                        this.sendMessage('Seviye testi nasıl yapılır?');
-                        break;
-                    case 'create_cv':
-                        this.sendMessage('CV nasıl oluştururum?');
-                        break;
-                    case 'view_services':
-                        this.sendMessage('Belediye hizmetleri neler?');
-                        break;
-                    case 'view_faq':
-                        this.sendMessage('Sık sorulan sorular');
-                        break;
-                    default:
-                        this.sendMessage(action.text);
-                }
+            handleActionClick(action) {
+                const actionMessages = {
+                    'view_courses': {
+                        en: 'Show me available Finnish language courses',
+                        fi: 'Näytä saatavilla olevat suomen kielen kurssit',
+                        tr: 'Mevcut Fince dil kurslarını göster',
+                        ar: 'أظهر لي دورات اللغة الفنلندية المتاحة'
+                    },
+                    'view_services': {
+                        en: 'Tell me about public services in Finland',
+                        fi: 'Kerro julkisista palveluista Suomessa',
+                        tr: 'Finlandiya\'daki kamu hizmetleri hakkında bilgi ver',
+                        ar: 'أخبرني عن الخدمات العامة في فنلندا'
+                    },
+                    'te_office': {
+                        en: 'How can TE office help me?',
+                        fi: 'Miten TE-toimisto voi auttaa minua?',
+                        tr: 'TE ofisi bana nasıl yardımcı olabilir?',
+                        ar: 'كيف يمكن لمكتب TE مساعدتي؟'
+                    },
+                    'kela_info': {
+                        en: 'Tell me about Kela services',
+                        fi: 'Kerro Kelan palveluista',
+                        tr: 'Kela hizmetleri hakkında bilgi ver',
+                        ar: 'أخبرني عن خدمات كيلا'
+                    }
+                };
+
+                const message = actionMessages[action] && actionMessages[action][this.currentLanguage] 
+                    ? actionMessages[action][this.currentLanguage] 
+                    : `Tell me about ${action}`;
+                
+                this.chatInput.value = message;
+                this.sendMessage();
             }
 
-            showTyping() {
-                this.isTyping = true;
+            showTypingIndicator() {
                 this.typingIndicator.style.display = 'flex';
-                this.sendBtn.disabled = true;
                 this.scrollToBottom();
             }
 
-            hideTyping() {
-                this.isTyping = false;
+            hideTypingIndicator() {
                 this.typingIndicator.style.display = 'none';
-                this.sendBtn.disabled = false;
             }
 
             scrollToBottom() {
@@ -498,15 +629,10 @@
             }
         }
 
-        // Quick message function for buttons
-        function sendQuickMessage(message) {
-            chatbot.sendMessage(message);
-        }
-
         // Initialize chatbot when page loads
         let chatbot;
         document.addEventListener('DOMContentLoaded', () => {
-            chatbot = new SOUAIChatbot();
+            chatbot = new FinlandImmigrationChatbot();
         });
     </script>
 </body>

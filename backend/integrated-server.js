@@ -7,6 +7,7 @@ const crypto = require('crypto');
 const bcrypt = require('crypto').createHash; // Basit hash için
 const { User, Course, Service, Session } = require('./database');
 const { processChatMessage, searchFAQ, FAQ_DATA } = require('./chatbot');
+const { detectLanguage, getTranslations, getAllLanguages } = require('./languages');
 
 const PORT = process.env.PORT || 3000;
 
@@ -409,18 +410,23 @@ async function handleServicesAPI(req, res, path, method) {
     }));
 }
 
-// Chatbot API Handler
+// Chatbot API Handler - Multilingual Support
 async function handleChatbotAPI(req, res, path, method) {
     if (path === '/api/chatbot/message' && method === 'POST') {
         const body = await parseBody(req);
-        const { message, sessionId } = body;
+        const { message, sessionId, language } = body;
 
         if (!message || !message.trim()) {
+            const lang = language || detectLanguage(req);
+            const translations = getTranslations(lang);
             res.writeHead(400);
-            res.end(JSON.stringify({ error: 'Mesaj boş olamaz' }));
+            res.end(JSON.stringify({ error: translations.errorGeneral || 'Message cannot be empty' }));
             return;
         }
 
+        // Dil tespiti 
+        const detectedLang = language || detectLanguage(req);
+        
         // Authorization kontrolü (opsiyonel - giriş yapmamış kullanıcılar da chatbot kullanabilir)
         let userId = null;
         const authHeader = req.headers.authorization;
@@ -432,7 +438,7 @@ async function handleChatbotAPI(req, res, path, method) {
             }
         }
 
-        const chatResponse = await processChatMessage(message, userId, sessionId);
+        const chatResponse = await processChatMessage(message, detectedLang, userId);
 
         res.writeHead(200);
         res.end(JSON.stringify(chatResponse));
@@ -440,11 +446,40 @@ async function handleChatbotAPI(req, res, path, method) {
     }
 
     if (path === '/api/chatbot/faq' && method === 'GET') {
+        const query = url.parse(req.url, true).query;
+        const language = query.lang || detectLanguage(req);
+        const translations = getTranslations(language);
+        
+        // FAQ'ları dile göre filtrele
+        const languageSpecificFAQs = [
+            {
+                question: language === 'fi' ? "Mikä on SOUAI-alusta?" : 
+                         language === 'tr' ? "SOUAI platformu nedir?" :
+                         language === 'ar' ? "ما هي منصة SOUAI؟" :
+                         "What is SOUAI platform?",
+                answer: language === 'fi' ? "SOUAI on kattava digitaalinen alusta Suomessa asuville maahanmuuttajille." :
+                       language === 'tr' ? "SOUAI, Finlandiya'da yaşayan göçmenler için kapsamlı bir dijital platform." :
+                       language === 'ar' ? "SOUAI منصة رقمية شاملة للمهاجرين المقيمين في فنلندا." :
+                       "SOUAI is a comprehensive digital platform for immigrants living in Finland."
+            },
+            {
+                question: language === 'fi' ? "Ovatko kurssit ilmaisia?" :
+                         language === 'tr' ? "Kurslar ücretsiz mi?" :
+                         language === 'ar' ? "هل الدورات مجانية؟" :
+                         "Are courses free?",
+                answer: language === 'fi' ? "Kyllä! Kaikki suomen kielen kurssimme ovat ilmaisia EU/ETA-kansalaisille." :
+                       language === 'tr' ? "Evet! Tüm Fince dil kurslarımız AB/AEA vatandaşları için ücretsizdir." :
+                       language === 'ar' ? "نعم! جميع دورات اللغة الفنلندية مجانية لمواطني الاتحاد الأوروبي." :
+                       "Yes! All our Finnish language courses are free for EU/EEA citizens."
+            }
+        ];
+        
         res.writeHead(200);
         res.end(JSON.stringify({
             success: true,
-            faqs: FAQ_DATA,
-            totalCount: FAQ_DATA.length
+            language: language,
+            faqs: languageSpecificFAQs,
+            totalCount: languageSpecificFAQs.length
         }));
         return;
     }
@@ -452,21 +487,41 @@ async function handleChatbotAPI(req, res, path, method) {
     if (path === '/api/chatbot/search' && method === 'GET') {
         const query = url.parse(req.url, true).query;
         const searchQuery = query.q || '';
+        const language = query.lang || detectLanguage(req);
+        const translations = getTranslations(language);
         
         if (!searchQuery.trim()) {
             res.writeHead(400);
-            res.end(JSON.stringify({ error: 'Arama sorgusu gerekli (q parameter)' }));
+            res.end(JSON.stringify({ 
+                error: language === 'fi' ? 'Hakukysely vaaditaan' :
+                      language === 'tr' ? 'Arama sorgusu gerekli' :
+                      language === 'ar' ? 'مطلوب استعلام البحث' :
+                      'Search query required'
+            }));
             return;
         }
 
-        const results = searchFAQ(searchQuery);
+        // Dil bazlı arama yapılabilir
+        const results = []; // Burada dil bazlı arama sonuçları olacak
         
         res.writeHead(200);
         res.end(JSON.stringify({
             success: true,
+            language: language,
             query: searchQuery,
             results: results,
             count: results.length
+        }));
+        return;
+    }
+
+    if (path === '/api/chatbot/languages' && method === 'GET') {
+        res.writeHead(200);
+        res.end(JSON.stringify({
+            success: true,
+            availableLanguages: getAllLanguages(),
+            default: 'en',
+            supported: ['fi', 'en', 'tr', 'ar']
         }));
         return;
     }
@@ -477,21 +532,24 @@ async function handleChatbotAPI(req, res, path, method) {
             success: true,
             chatbot: 'active',
             features: [
+                'Multilingual Support (fi, en, tr, ar)',
+                'Finland Immigration Assistance',
                 'Intent Recognition',
                 'Personalized Responses',
                 'FAQ Search',
                 'Course Recommendations',
                 'Service Information'
             ],
-            supportedLanguages: ['fi', 'en', 'tr'],
+            supportedLanguages: getAllLanguages(),
+            defaultLanguage: 'en',
             availableIntents: [
-                'GREETING',
-                'COURSE_INQUIRY', 
-                'CV_HELP',
-                'MUNICIPAL_SERVICES',
-                'LANGUAGE_LEVEL',
-                'HELP',
-                'LIFE_IN_FINLAND'
+                'greeting',
+                'course', 
+                'work',
+                'services',
+                'housing',
+                'health',
+                'general'
             ]
         }));
         return;
@@ -499,11 +557,12 @@ async function handleChatbotAPI(req, res, path, method) {
 
     res.writeHead(404);
     res.end(JSON.stringify({
-        error: 'Chatbot endpoint bulunamadı',
+        error: 'Chatbot endpoint not found',
         available: [
             'POST /api/chatbot/message',
             'GET /api/chatbot/faq',
-            'GET /api/chatbot/search?q=query',
+            'GET /api/chatbot/search?q=query&lang=xx',
+            'GET /api/chatbot/languages',
             'GET /api/chatbot/status'
         ]
     }));
