@@ -11,7 +11,7 @@ const router = Router();
 // Registration
 router.post(
   '/register',
-  rateLimiter.register,
+  rateLimiter,
   [
     body('email')
       .isEmail()
@@ -44,7 +44,7 @@ router.post(
 // Login
 router.post(
   '/login',
-  rateLimiter.login,
+  rateLimiter,
   [
     body('email')
       .isEmail()
@@ -86,7 +86,7 @@ router.get(
 // Forgot password
 router.post(
   '/forgot-password',
-  rateLimiter.forgotPassword,
+  rateLimiter,
   [
     body('email')
       .isEmail()
@@ -100,7 +100,7 @@ router.post(
 // Reset password
 router.post(
   '/reset-password',
-  rateLimiter.resetPassword,
+  rateLimiter,
   [
     body('token')
       .isUUID()
