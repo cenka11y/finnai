@@ -1,53 +1,165 @@
-# SOUAI - AI-Powered Orientation Platform for Immigrants in Finland
+# SOUAI - Online Eğitim ve Kariyer Platformu
 
-SOUAI is a modern, AI-powered platform that helps immigrants in Finland with language learning, job preparation, and finding municipal services.
+## 🚀 Hızlı Başlangıç (Docker)
 
-## Features
+### Gereksinimler
+- Docker
+- Docker Compose
 
-- **Personalized Finnish Language Learning**: CEFR-based assessment and tailored courses
-- **ATS-Friendly CV Builder**: Professional CV and cover letter generation
-- **Job Readiness Training**: Interview prep and workplace culture guidance
-- **Municipal Services Directory**: City-aware directory with official source citations
-- **Multi-language Support**: Finnish, English, with scaffolding for Turkish, Arabic, Russian, Somali
+### Başlatma
 
-## Tech Stack
+```bash
+# Basit başlatma
+./start-docker.sh
 
-- **Frontend**: Next.js 14 (App Router), TypeScript, Tailwind CSS
-- **Backend**: Node.js, TypeScript, Express
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: NextAuth.js with multiple providers
-- **File Storage**: S3-compatible storage
-- **Speech Services**: Web Speech API + external TTS/STT
-
-## Project Structure
-
-```
-souai/
-├── frontend/          # Next.js application
-├── backend/           # Express API server
-├── database/          # Database schemas and migrations
-├── shared/            # Shared types and utilities
-├── docs/             # Documentation and specifications
-└── deploy/           # Deployment configurations
+# Manuel başlatma
+docker-compose up --build -d
 ```
 
-## Quick Start
+### API Endpoints
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Set up environment variables
-4. Run database migrations
-5. Start development servers
+#### 🔐 Kimlik Doğrulama
+- `POST /api/auth/register` - Kullanıcı kaydı
+- `POST /api/auth/login` - Kullanıcı girişi
+- `POST /api/auth/logout` - Kullanıcı çıkışı
+- `POST /api/auth/refresh` - Token yenileme
+- `POST /api/auth/forgot-password` - Şifre sıfırlama
+- `POST /api/auth/reset-password` - Şifre yenileme
 
-## Documentation
+#### 👥 Kullanıcı Yönetimi
+- `GET /api/users/profile` - Profil görüntüleme
+- `PUT /api/users/profile` - Profil güncelleme
+- `POST /api/users/upload-avatar` - Avatar yükleme
+- `DELETE /api/users/delete-account` - Hesap silme
 
-Detailed documentation is available in the `/docs` directory:
+#### 📚 Kurs Yönetimi
+- `GET /api/courses` - Kurs listesi
+- `GET /api/courses/:id` - Kurs detayı
+- `POST /api/courses` - Kurs oluşturma
+- `PUT /api/courses/:id` - Kurs güncelleme
+- `DELETE /api/courses/:id` - Kurs silme
+- `POST /api/courses/:id/enroll` - Kursa kayıt
+- `GET /api/courses/:id/progress` - Kurs ilerlemesi
 
-- [API Documentation](docs/api.md)
-- [Database Schema](docs/database.md)
-- [Deployment Guide](docs/deployment.md)
-- [Contributing Guidelines](docs/contributing.md)
+#### 📄 CV Yönetimi
+- `GET /api/cv` - CV listesi
+- `POST /api/cv` - CV oluşturma
+- `GET /api/cv/:id` - CV detayı
+- `PUT /api/cv/:id` - CV güncelleme
+- `DELETE /api/cv/:id` - CV silme
+- `POST /api/cv/:id/generate-pdf` - PDF oluşturma
 
-## License
+#### 🎓 Hizmet Yönetimi
+- `GET /api/services` - Hizmet listesi
+- `GET /api/services/:id` - Hizmet detayı
+- `POST /api/services/:id/request` - Hizmet talebi
 
-MIT License - see LICENSE file for details.
+#### 👨‍💼 Admin Panel
+- `GET /api/admin/dashboard` - Admin paneli
+- `GET /api/admin/users` - Kullanıcı yönetimi
+- `GET /api/admin/courses` - Kurs yönetimi
+- `GET /api/admin/analytics` - Analitik veriler
+
+### 🐳 Docker Komutları
+
+```bash
+# Container'ları başlat
+docker-compose up -d
+
+# Logları görüntüle
+docker-compose logs -f backend
+
+# Container'lara bağlan
+docker-compose exec backend sh
+docker-compose exec postgres psql -U souai_user -d souai_db
+
+# Veritabanı işlemleri
+docker-compose exec backend npx prisma studio
+docker-compose exec backend npx prisma db push
+docker-compose exec backend npx prisma generate
+
+# Container'ları durdur
+docker-compose down
+
+# Volume'ları da sil
+docker-compose down -v
+```
+
+### 🔧 Geliştirme
+
+```bash
+# Backend'e bağlan
+docker-compose exec backend sh
+
+# NPM komutları
+npm run dev      # Geliştirme modu
+npm run build    # Üretim build
+npm run test     # Testleri çalıştır
+npm run lint     # Kod kontrolü
+```
+
+### 📊 Servisler
+
+- **Backend API**: http://localhost:3000
+- **PostgreSQL**: localhost:5432
+- **Prisma Studio**: http://localhost:5555 (manuel başlatma gerekli)
+
+### 🔒 Güvenlik Özellikleri
+
+- JWT tabanlı kimlik doğrulama
+- Bcrypt şifreleme
+- Rate limiting
+- CORS koruması
+- Helmet güvenlik başlıkları
+- Input validasyonu
+- SQL injection koruması
+
+### 📁 Proje Yapısı
+
+```
+backend/
+├── src/
+│   ├── controllers/     # API kontrolcüleri
+│   ├── routes/         # Route tanımları
+│   ├── middleware/     # Ara katman fonksiyonları
+│   ├── services/       # İş mantığı
+│   ├── utils/          # Yardımcı fonksiyonlar
+│   ├── types/          # TypeScript tipleri
+│   ├── config/         # Konfigürasyon
+│   ├── app.ts          # Express uygulama
+│   └── server.ts       # Sunucu başlatma
+├── prisma/
+│   └── schema.prisma   # Veritabanı şeması
+├── Dockerfile
+├── package.json
+└── tsconfig.json
+```
+
+### 🐛 Sorun Giderme
+
+```bash
+# Container durumunu kontrol et
+docker-compose ps
+
+# Backend loglarını incele
+docker-compose logs backend
+
+# Veritabanı bağlantısını test et
+docker-compose exec postgres psql -U souai_user -d souai_db -c "SELECT 1;"
+
+# Container'ı yeniden başlat
+docker-compose restart backend
+```
+
+### 🔄 Database Migration
+
+```bash
+# Prisma migration oluştur
+docker-compose exec backend npx prisma migrate dev --name init
+
+# Database'i güncel şemaya göre güncelle
+docker-compose exec backend npx prisma db push
+
+# Prisma client'ı yeniden oluştur
+docker-compose exec backend npx prisma generate
+```

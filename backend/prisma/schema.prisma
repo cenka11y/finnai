@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -73,12 +73,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -310,7 +310,7 @@ model Content {
   
   url           String   @unique
   title         String
-  content       String   @db.Text
+  content       String
   contentHash   String   // For change detection
   language      String
   category      String?
@@ -344,7 +344,7 @@ model Feedback {
   
   type          String   // "bug", "feature", "content", "general"
   subject       String
-  message       String   @db.Text
+  message       String
   userAgent     String?
   url           String?
   
