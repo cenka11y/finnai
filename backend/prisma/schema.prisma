@@ -1,0 +1,372 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User Management
+model User {
+  id                String   @id @default(cuid())
+  email             String   @unique
+  emailVerified     DateTime?
+  hashedPassword    String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Profile information
+  profile           UserProfile?
+  
+  // Learning data
+  assessments       LanguageAssessment[]
+  enrollments       CourseEnrollment[]
+  lessonAttempts    LessonAttempt[]
+  
+  // CV data
+  cvProfiles        CVProfile[]
+  cvDocuments       CVDocument[]
+  
+  // System data
+  sessions          Session[]
+  accounts          Account[]
+  notifications     Notification[]
+  feedbacks         Feedback[]
+  
+  @@map("users")
+}
+
+model UserProfile {
+  id                String   @id @default(cuid())
+  userId            String   @unique
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  firstName         String?
+  lastName          String?
+  preferredLanguage String   @default("fi")
+  city              String?
+  countryOfOrigin   String?
+  arrivalDate       DateTime?
+  educationLevel    String?
+  workExperience    String?
+  currentCEFRLevel  String?
+  
+  // Privacy settings
+  privacyConsent    Boolean  @default(false)
+  marketingConsent  Boolean  @default(false)
+  dataRetention     Boolean  @default(true)
+  
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  @@map("user_profiles")
+}
+
+// Authentication
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("sessions")
+}
+
+// Language Learning
+model LanguageAssessment {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  assessmentType String  // "initial", "progress", "final"
+  cefrLevel     String   // A1, A2, B1, B2, C1, C2
+  scores        Json     // Detailed scores by skill
+  duration      Int      // Minutes taken
+  
+  createdAt     DateTime @default(now())
+  
+  @@map("language_assessments")
+}
+
+model Course {
+  id            String   @id @default(cuid())
+  title         Json     // Multilingual titles
+  description   Json     // Multilingual descriptions
+  cefrLevel     String
+  estimatedDuration Int   // Hours
+  isActive      Boolean  @default(true)
+  
+  modules       CourseModule[]
+  enrollments   CourseEnrollment[]
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("courses")
+}
+
+model CourseModule {
+  id            String   @id @default(cuid())
+  courseId      String
+  course        Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  
+  title         Json     // Multilingual
+  description   Json     // Multilingual
+  orderIndex    Int
+  
+  lessons       Lesson[]
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("course_modules")
+}
+
+model Lesson {
+  id            String   @id @default(cuid())
+  moduleId      String
+  module        CourseModule @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  
+  title         Json     // Multilingual
+  content       Json     // Lesson content structure
+  lessonType    String   // "vocabulary", "grammar", "listening", "speaking", "reading"
+  orderIndex    Int
+  estimatedMinutes Int
+  
+  exercises     Exercise[]
+  attempts      LessonAttempt[]
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("lessons")
+}
+
+model Exercise {
+  id            String   @id @default(cuid())
+  lessonId      String
+  lesson        Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  
+  exerciseType  String   // "multiple_choice", "fill_blank", "speaking", "listening"
+  question      Json     // Question data
+  correctAnswer Json     // Correct answer(s)
+  options       Json?    // For multiple choice
+  orderIndex    Int
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("exercises")
+}
+
+model CourseEnrollment {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  courseId      String
+  course        Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  
+  status        String   @default("active") // "active", "completed", "paused"
+  progress      Int      @default(0) // Percentage
+  
+  enrolledAt    DateTime @default(now())
+  completedAt   DateTime?
+  
+  @@unique([userId, courseId])
+  @@map("course_enrollments")
+}
+
+model LessonAttempt {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lessonId      String
+  lesson        Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  
+  score         Int      // Percentage
+  timeSpent     Int      // Minutes
+  exerciseResults Json   // Detailed results
+  
+  createdAt     DateTime @default(now())
+  
+  @@map("lesson_attempts")
+}
+
+// CV Builder
+model CVProfile {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  name          String   @default("My CV")
+  personalInfo  Json     // Name, contact, etc.
+  summary       Json     // Professional summary
+  workExperience Json    // Work history
+  education     Json     // Education history
+  skills        Json     // Skills and competencies
+  languages     Json     // Language proficiency
+  certificates  Json     // Certificates and awards
+  
+  isDefault     Boolean  @default(false)
+  
+  documents     CVDocument[]
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("cv_profiles")
+}
+
+model CVDocument {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  cvProfileId   String
+  cvProfile     CVProfile @relation(fields: [cvProfileId], references: [id], onDelete: Cascade)
+  
+  name          String
+  language      String   // "fi" or "en"
+  format        String   // "pdf" or "docx"
+  template      String   // Template identifier
+  fileUrl       String?  // S3 URL
+  fileSize      Int?
+  
+  createdAt     DateTime @default(now())
+  
+  @@map("cv_documents")
+}
+
+// Municipal Services
+model Service {
+  id            String   @id @default(cuid())
+  name          Json     // Multilingual service names
+  description   Json     // Multilingual descriptions
+  category      String   // "immigration", "housing", "employment", "health", etc.
+  city          String
+  
+  contactInfo   Json     // Phone, email, address
+  openingHours  Json     // Operating hours
+  website       String?
+  eligibility   Json     // Who can use this service
+  requirements  Json     // Required documents/conditions
+  instructions  Json     // How to access/use
+  
+  sourceUrl     String   // Original source URL
+  lastChecked   DateTime @default(now())
+  isVerified    Boolean  @default(false)
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("services")
+}
+
+// Content Management
+model ContentSource {
+  id            String   @id @default(cuid())
+  name          String   @unique
+  baseUrl       String
+  robotsTxt     String?
+  lastCrawled   DateTime?
+  isActive      Boolean  @default(true)
+  
+  contents      Content[]
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("content_sources")
+}
+
+model Content {
+  id            String   @id @default(cuid())
+  sourceId      String
+  source        ContentSource @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+  
+  url           String   @unique
+  title         String
+  content       String   @db.Text
+  contentHash   String   // For change detection
+  language      String
+  category      String?
+  
+  lastFetched   DateTime @default(now())
+  isActive      Boolean  @default(true)
+  
+  @@map("contents")
+}
+
+// System
+model Notification {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  type          String   // "lesson_reminder", "achievement", "system"
+  title         Json     // Multilingual
+  message       Json     // Multilingual
+  isRead        Boolean  @default(false)
+  
+  createdAt     DateTime @default(now())
+  
+  @@map("notifications")
+}
+
+model Feedback {
+  id            String   @id @default(cuid())
+  userId        String?
+  user          User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  type          String   // "bug", "feature", "content", "general"
+  subject       String
+  message       String   @db.Text
+  userAgent     String?
+  url           String?
+  
+  status        String   @default("open") // "open", "in_progress", "resolved", "closed"
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("feedbacks")
+}
+
+model AuditLog {
+  id            String   @id @default(cuid())
+  userId        String?
+  action        String   // "create", "update", "delete", "login", etc.
+  resource      String   // "user", "course", "cv", etc.
+  resourceId    String?
+  details       Json?
+  ipAddress     String?
+  userAgent     String?
+  
+  createdAt     DateTime @default(now())
+  
+  @@map("audit_logs")
+}
