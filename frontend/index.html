@@ -290,38 +290,33 @@
         .btn {
             padding: 18px 40px;
             border: none;
-            border-radius: 50px;
+            border-radius: 8px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            position: relative;
-            overflow: hidden;
         }
 
         .btn-primary {
-            background: var(--gradient-primary);
+            background: var(--electric-purple);
             color: white;
-            box-shadow: 0 10px 30px rgba(147, 51, 234, 0.4);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(147, 51, 234, 0.6);
+            background: var(--electric-purple-dark);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--text-primary);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         /* Services Section */
@@ -1038,49 +1033,7 @@
                 element.style.animation = `float 6s ease-in-out infinite`;
             });
 
-            // Button click effects
-            document.querySelectorAll('.btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    let ripple = document.createElement('span');
-                    ripple.classList.add('ripple');
-                    this.appendChild(ripple);
-
-                    let x = e.clientX - e.target.offsetLeft;
-                    let y = e.clientY - e.target.offsetTop;
-
-                    ripple.style.left = `${x}px`;
-                    ripple.style.top = `${y}px`;
-
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
-                });
-            });
         });
-
-        // Add CSS for ripple effect
-        const style = document.createElement('style');
-        style.textContent = `
-            .btn {
-                position: relative;
-                overflow: hidden;
-            }
-            .ripple {
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.3);
-                transform: scale(0);
-                animation: ripple-animation 0.6s linear;
-                pointer-events: none;
-            }
-            @keyframes ripple-animation {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
