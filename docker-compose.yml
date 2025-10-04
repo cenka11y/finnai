@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Veritabanı
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: souai_db
+      POSTGRES_USER: souai_user
+      POSTGRES_PASSWORD: souai_password_2024
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    networks:
+      - souai-network
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://souai_user:souai_password_2024@postgres:5432/souai_db
+      - JWT_SECRET=your-super-secret-jwt-key-change-in-production
+      - JWT_EXPIRES_IN=7d
+      - BCRYPT_ROUNDS=12
+      - RATE_LIMIT_MAX=100
+      - RATE_LIMIT_WINDOW=900000
+    depends_on:
+      - postgres
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - souai-network
+    command: sh -c "npx prisma generate && npx prisma db push && npm run dev"
+
+volumes:
+  postgres_data:
+
+networks:
+  souai-network:
+    driver: bridge

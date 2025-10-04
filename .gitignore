@@ -591,9 +591,9 @@
 # MySQL
 **/mysql-bin.*
 
-# PostgreSQL
+# PostgreSQL  
 **/*.backup
-**/*.sql
+# **/*.sql  # Commented out to allow init-db.sql and schema files
 
 # MongoDB
 **/dump/
@@ -607,7 +607,7 @@
 # Docker
 **/Dockerfile*
 **/.dockerignore
-**/docker-compose*.yml
+# **/docker-compose*.yml  # Commented out to allow docker-compose.yml
 **/.docker/
 
 # Kubernetes
@@ -807,7 +807,7 @@
 **/*.tar
 **/*.gz
 **/*.tgz
-**/*.tar.gz
+# **/*.tar.gz  # Commented out to allow project archives like suoai-project.tar.gz
 **/*.tar.bz2
 **/*.tar.xz
 
