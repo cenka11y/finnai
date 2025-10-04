@@ -1,7 +1,17 @@
 deploy:
+  # 1) Plesk Node.js bin dizinlerini PATH'e ekle (yüklü olabilecek sürümler)
+  - export PATH="/opt/plesk/node/22/bin:/opt/plesk/node/20/bin:/opt/plesk/node/18/bin:$PATH"
+
+  # 2) Doğru klasöre kilitle
   - echo "CWD=$(pwd)"
   - cd "$DEPLOY_PATH" || { echo "Cannot cd to $DEPLOY_PATH"; exit 1; }
+
+  # 3) Sürüm kontrol
   - node -v && npm -v
+
+  # 4) Kurulum + build (workspaces ile)
   - if [ -f package-lock.json ]; then npm ci --no-audit --no-fund; else npm install --no-audit --no-fund; fi
   - npm run build
+
+  # 5) Passenger/Node restart tetikle
   - mkdir -p tmp && touch tmp/restart.txt
