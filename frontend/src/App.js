@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import HomePage from './components/HomePage';
 import CoursesPage from './components/CoursesPage';
+import { useTranslation } from './i18n/useTranslation';
 import './styles/main.css';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home');
+  const { t } = useTranslation();
 
   const handleNavigation = (page) => {
     setCurrentPage(page);
@@ -22,12 +24,12 @@ const App = () => {
           <div className="main-content">
             <div className="card" style={{ textAlign: 'center', padding: '3rem' }}>
               <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📄</div>
-              <h2>CV Oluşturucu</h2>
+              <h2>{t('pages.cv.title')}</h2>
               <p style={{ color: '#4a5568', marginBottom: '2rem' }}>
-                Profesyonel CV oluşturma aracı yakında hizmette olacak
+                {t('pages.cv.description')}
               </p>
               <a href="#" className="btn btn-primary" onClick={(e) => { e.preventDefault(); handleNavigation('home'); }}>
-                Anasayfaya Dön
+                {t('pages.cv.backHome')}
               </a>
             </div>
           </div>
@@ -37,12 +39,12 @@ const App = () => {
           <div className="main-content">
             <div className="card" style={{ textAlign: 'center', padding: '3rem' }}>
               <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🏢</div>
-              <h2>Belediye Hizmetleri</h2>
+              <h2>{t('pages.services.title')}</h2>
               <p style={{ color: '#4a5568', marginBottom: '2rem' }}>
-                Finlandiya belediye hizmetleri rehberi yakında kullanıma sunulacak
+                {t('pages.services.description')}
               </p>
               <a href="#" className="btn btn-primary" onClick={(e) => { e.preventDefault(); handleNavigation('home'); }}>
-                Anasayfaya Dön
+                {t('pages.services.backHome')}
               </a>
             </div>
           </div>
@@ -52,12 +54,12 @@ const App = () => {
           <div className="main-content">
             <div className="card" style={{ textAlign: 'center', padding: '3rem' }}>
               <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>👥</div>
-              <h2>Kullanıcı Profili</h2>
+              <h2>{t('pages.profile.title')}</h2>
               <p style={{ color: '#4a5568', marginBottom: '2rem' }}>
-                Profil yönetimi ve ayarlar yakında eklenecek
+                {t('pages.profile.description')}
               </p>
               <a href="#" className="btn btn-primary" onClick={(e) => { e.preventDefault(); handleNavigation('home'); }}>
-                Anasayfaya Dön
+                {t('pages.profile.backHome')}
               </a>
             </div>
           </div>
@@ -82,13 +84,13 @@ const App = () => {
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ marginBottom: '1rem' }}>
-            <strong>SUOAI</strong> - Online Eğitim ve Kariyer Platformu
+            <strong>{t('footer.title')}</strong>
           </div>
           <div style={{ fontSize: '0.875rem', opacity: 0.8 }}>
-            Suomen kielen öğrenme ve kariyer geliştirme platformunuz
+            {t('footer.subtitle')}
           </div>
           <div style={{ fontSize: '0.8rem', marginTop: '1rem', opacity: 0.6 }}>
-            © 2025 SUOAI - Tüm hakları saklıdır
+            {t('footer.copyright')}
           </div>
         </div>
       </footer>
