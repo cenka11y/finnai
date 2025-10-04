@@ -1,0 +1,7 @@
+deploy:
+  - echo "CWD=$(pwd)"
+  - cd "$DEPLOY_PATH" || { echo "Cannot cd to $DEPLOY_PATH"; exit 1; }
+  - node -v && npm -v
+  - if [ -f package-lock.json ]; then npm ci --no-audit --no-fund; else npm install --no-audit --no-fund; fi
+  - npm run build
+  - mkdir -p tmp && touch tmp/restart.txt
