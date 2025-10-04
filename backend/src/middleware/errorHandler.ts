@@ -27,13 +27,15 @@ export const errorHandler = (
   // Mongoose duplicate key
   if (err.name === 'MongoError' && (err as any).code === 11000) {
     const message = 'Duplicate field value entered';
-    error = { ...error, statusCode: 400, message };
+    const _msg = Array.isArray(message) ? message.join(', ') : String(message);
+    error = { ...error, statusCode: 400, message: _msg };
   }
 
   // Mongoose validation error
   if (err.name === 'ValidationError') {
     const message = Object.values((err as any).errors).map((val: any) => val.message);
-    error = { ...error, statusCode: 400, message };
+    const _msg = Array.isArray(message) ? message.join(', ') : String(message);
+    error = { ...error, statusCode: 400, message: _msg };
   }
 
   // JWT errors
@@ -51,7 +53,8 @@ export const errorHandler = (
   if (err.name === 'PrismaClientKnownRequestError') {
     if ((err as any).code === 'P2002') {
       const message = 'Duplicate field value entered';
-      error = { ...error, statusCode: 400, message };
+      const _msg = Array.isArray(message) ? message.join(', ') : String(message);
+    error = { ...error, statusCode: 400, message: _msg };
     }
     if ((err as any).code === 'P2025') {
       const message = 'Record not found';
