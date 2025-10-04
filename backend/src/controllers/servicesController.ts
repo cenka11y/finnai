@@ -32,7 +32,11 @@ class ServicesController {
         filteredServices = services.filter(service => {
           const names = service.name as any;
           const descriptions = service.description as any;
-          return names[language] || descriptions[language];
+          const rawLang:any = (req.query.lang ?? req.query.language);
+const language = Array.isArray(rawLang) ? String(rawLang[0]) : String(rawLang ?? 'fi');
+const n = (names as Record<string,string>)[language];
+const d = (descriptions as Record<string,string>)[language];
+return n || d;
         });
       }
 
@@ -97,7 +101,11 @@ class ServicesController {
         filteredServices = services.filter(service => {
           const names = service.name as any;
           const descriptions = service.description as any;
-          return names[language] || descriptions[language];
+          const rawLang:any = (req.query.lang ?? req.query.language);
+const language = Array.isArray(rawLang) ? String(rawLang[0]) : String(rawLang ?? 'fi');
+const n = (names as Record<string,string>)[language];
+const d = (descriptions as Record<string,string>)[language];
+return n || d;
         });
       }
 

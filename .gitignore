@@ -895,3 +895,5 @@
 # uploads/
 # downloads/
 
+!frontend/public/
+!frontend/public/

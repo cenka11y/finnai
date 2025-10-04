@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions, Secret } from 'jsonwebtoken';
 import { prisma } from '@/config/database';
 import { logger } from '@/utils/logger';
 import { AuthenticatedRequest } from '@/middleware/auth';
@@ -46,11 +46,7 @@ class AuthController {
       });
 
       // Generate JWT token
-      const token = jwt.sign(
-        { userId: user.id },
-        process.env.JWT_SECRET!,
-        { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
-      );
+      const token = createToken(String(user.id));
 
       logger.info(`New user registered: ${user.email}`);
 
@@ -106,11 +102,7 @@ class AuthController {
       }
 
       // Generate JWT token
-      const token = jwt.sign(
-        { userId: user.id },
-        process.env.JWT_SECRET!,
-        { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
-      );
+      const token = createToken(String(user.id));
 
       // Update last login (we can add this field to schema later)
       logger.info(`User logged in: ${user.email}`);
@@ -277,3 +269,8 @@ class AuthController {
 }
 
 export const authController = new AuthController();
+function createToken(userId: string): string {
+  const JWT_SECRET: Secret = (process.env.JWT_SECRET || 'change-me') as Secret;
+  const opts: SignOptions = { expiresIn: '1h' };
+  return jwt.sign({ userId }, JWT_SECRET, opts);
+}
