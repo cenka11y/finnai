@@ -4,8 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, '../public'), // Root'a build et
+    filename: 'static/js/bundle.js',
+    publicPath: '/',
     clean: true
   },
   module: {
@@ -26,12 +27,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html'),
-      filename: 'index.html'
+      filename: 'index.html',
+      title: 'SUOAI - Finland Immigration & Integration Platform'
     })
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist')
+      directory: path.join(__dirname, '../public')
     },
     port: 3001,
     open: false,
