@@ -5,19 +5,17 @@ const Header = ({ currentPage, onNavigate }) => {
   const { t, changeLanguage, availableLanguages, language } = useTranslation();
   
   const navItems = [
-    { id: 'home', label: t('navigation.dashboard'), icon: '🏠' },
-    { id: 'courses', label: t('navigation.learn'), icon: '📚' },
-    { id: 'cv', label: t('navigation.cv'), icon: '📄' },
-    { id: 'services', label: t('navigation.services'), icon: '🏢' },
-    { id: 'profile', label: t('navigation.profile'), icon: '👥' }
+    { id: 'home', label: t('navigation.dashboard') },
+    { id: 'courses', label: t('navigation.learn') },
+    { id: 'cv', label: t('navigation.cv') },
+    { id: 'services', label: t('navigation.services') }
   ];
 
   return (
     <header className="header">
       <div className="header-content">
         <a href="#" className="logo" onClick={(e) => { e.preventDefault(); onNavigate('home'); }}>
-          <span>🎓</span>
-          <span>{t('common.appName')}</span>
+          {t('common.appName')}
         </a>
         
         <nav className="nav">
@@ -31,34 +29,25 @@ const Header = ({ currentPage, onNavigate }) => {
                 onNavigate(item.id);
               }}
             >
-              <span>{item.icon}</span>
-              <span>{item.label}</span>
+              {item.label}
             </a>
           ))}
-          
-          {/* Language Selector */}
+        </nav>
+        
+        {/* Modern Language Selector */}
+        <div className="language-selector">
           <select
             value={language}
             onChange={(e) => changeLanguage(e.target.value)}
-            className="language-selector"
-            style={{
-              background: '#4a5568',
-              color: 'white',
-              border: '1px solid #4299e1',
-              borderRadius: '0.5rem',
-              padding: '0.5rem',
-              fontSize: '0.875rem',
-              cursor: 'pointer',
-              marginLeft: '1rem'
-            }}
+            aria-label={t('common.selectLanguage')}
           >
             {availableLanguages.map(lang => (
               <option key={lang.code} value={lang.code}>
-                {lang.name}
+                {lang.flag} {lang.name}
               </option>
             ))}
           </select>
-        </nav>
+        </div>
       </div>
     </header>
   );

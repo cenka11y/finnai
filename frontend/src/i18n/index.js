@@ -56,9 +56,9 @@ class I18n {
 
   getAvailableLanguages() {
     return [
-      { code: 'fi', name: 'Suomi' },
-      { code: 'en', name: 'English' },
-      { code: 'tr', name: 'Türkçe' }
+      { code: 'fi', name: 'Suomi', flag: '🇫🇮' },
+      { code: 'en', name: 'English', flag: '🇬🇧' },
+      { code: 'tr', name: 'Türkçe', flag: '🇹🇷' }
     ];
   }
 }

@@ -9,7 +9,8 @@ export const fi = {
     continue: "Jatka",
     back: "Takaisin",
     error: "Virhe",
-    retry: "Yritä uudelleen"
+    retry: "Yritä uudelleen",
+    selectLanguage: "Valitse kieli"
   },
   navigation: {
     dashboard: "Kotisivu",

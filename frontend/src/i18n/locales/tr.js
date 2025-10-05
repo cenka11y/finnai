@@ -9,7 +9,8 @@ export const tr = {
     continue: "Devam",
     back: "Geri",
     error: "Hata",
-    retry: "Yeniden Dene"
+    retry: "Yeniden Dene",
+    selectLanguage: "Dil Seçin"
   },
   navigation: {
     dashboard: "Anasayfa",

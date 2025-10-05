@@ -9,7 +9,8 @@ export const en = {
     continue: "Continue",
     back: "Back",
     error: "Error",
-    retry: "Retry"
+    retry: "Retry",
+    selectLanguage: "Select Language"
   },
   navigation: {
     dashboard: "Dashboard",
